@@ -15,6 +15,7 @@ simple tiles game created in 24hr
 - [ ] landscape mode
 - [ ] gamemode: request: game requests a certain tile, gotta merge it and drop it into the "turn in" bit (new UI)
 - [ ] gamemode: timed. new tiles go away after x second and dont get refilled. if source tiles all go away, you lose. playing a tile into a droppable:not(self) refills source
+  - [ ] add disco ball if fast enough streaks, add screen shake on successful merge, add screen sparks/fetti on successful merge, scale with streak   
 - [ ] gamemode: endless. always make sure the spawning tile can do a match
 - [ ] gamemode: batched. do not refill source until al source tiles have been used
 
