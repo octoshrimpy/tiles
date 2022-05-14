@@ -1,0 +1,346 @@
+//////////  sections   /////////////
+// octostyles
+// base
+// pen
+////////////////////////////////////
+
+
+//////////////////// start octostyles
+@mixin animate {
+  transition: all .15s ease-in-out;
+}
+
+//basic colors
+$white: #fff;
+$black: #000;
+
+// flatUI colors
+$midnight:    #2c3e50;
+$asphalt:     #34495e;
+$bulma-black: #4a4a4a;
+$asbestos:    #7f8c8d;
+$concrete:    #95a5a6;
+$silver:      #bdc3c7;
+$clouds:      #ecf0f1;
+$emerald:     #2ecc71;
+$nephritis:   #27ae60;
+$turquoise:   #1abc9c;
+$greensea:    #16a085;
+$amethyst:    #9b59b6;
+$wisteria:    #8e44ad;
+$sunflower:   #f1c40f;
+$orange:      #f39c12;
+$carrot:      #e67e22;
+$pumpkin:     #d35400;
+$alizarin:    #e74c3c;
+$pomegranate: #c0392b;
+$river:       #3498db;
+$belize:      #2980b9;
+
+//MDL box-shadows
+$shadow-1: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+$shadow-2: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+$shadow-3: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+$shadow-4: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+$shadow-5: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+
+$shadow-border: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+
+$inset-shadow-1: inset 0 1px 3px rgba(0,0,0,0.12), inset 0 1px 2px rgba(0,0,0,0.24);
+$inset-shadow-2: inset 0 3px 6px rgba(0,0,0,0.16), inset 0 3px 6px rgba(0,0,0,0.23);
+$inset-shadow-3: inset 0 10px 20px rgba(0,0,0,0.19), inset 0 6px 6px rgba(0,0,0,0.23);
+$inset-shadow-4: inset 0 14px 28px rgba(0,0,0,0.25), inset 0 10px 10px rgba(0,0,0,0.22);
+$inset-shadow-5: inset 0 19px 38px rgba(0,0,0,0.30), inset 0 15px 12px rgba(0,0,0,0.22);
+
+$inset-shadow-border: inset 0 2px 3px rgba(10,10,10,.1), inset 0 0 0 1px rgba(10,10,10,.1);
+
+
+//////////////////// end octostyles
+
+//////////////////// start base
+
+//// colors
+$highlight-color: #caeed9;
+$highlight-dark: darken($highlight-color, 15%);
+$highlight-hover: #a3e1be;
+
+//// layout
+
+//////////////////// end base
+
+@keyframes mergeShake {
+  0% {
+    transform: rotate(0deg);
+  }
+  94%{
+    transform: rotate(0deg);
+  }
+  96% {
+    transform: rotate(-7deg);
+  }
+  98%{
+    transform: rotate(7deg);
+  }
+  100%{
+    transform: rotate(0deg);
+  }
+}
+//////////////////// start pen
+
+body,html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: $silver;
+  font-family: sans-serif;
+  align-items: center;
+  
+}
+.game {
+  height: 100%;
+  width: 100%;
+  max-width: 30rem; 
+  display: flex;
+  flex-direction: column;
+}
+.wrap {
+  position: relative;
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 1rem;
+  margin: 1rem;
+}
+
+.dragme {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  background: $silver;
+  color: $midnight;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: $shadow-border;
+  &:not(.ui-draggable-dragging) {  
+    transition: box-shadow 0.15s ease-in-out;
+  }
+}
+.source {
+  display: flex;
+  padding: 1rem;
+  margin: 1rem;
+  height: 5rem;
+  // background: $clouds;
+  border-radius: 0.5rem;
+  box-shadow: $inset-shadow-1;
+  background: $clouds;
+  
+  .dragme {
+    flex: 1;
+    
+    &:not(:first-child){
+      margin-left: 1rem;
+    }
+  }
+}
+
+.score {
+  display: flex;
+  margin: 0.5rem 1rem 0;
+  justify-content: flex-end;
+  align-items: center;
+  height: 3rem;
+  font-size: 1.5em;
+  &:after {
+    padding-left: 0.5rem;
+    content: "pts";
+  }
+}
+.button {
+  align-self: center;
+  border: 2px solid $midnight;
+  border-bottom-width: 12px;
+  margin: 0 1rem;
+  font-size: 1.5em;
+  padding: 0.5rem;
+
+  cursor: pointer;
+  transition: ease-in-out 0.1s all;
+  
+  &:active {
+    border-bottom-width: 4px;
+    // margin-bottom: 2px;
+    margin-top: 8px;
+  }
+
+}
+
+//// dragging styles
+.dragme {
+    cursor: grab;
+  
+    &:active {
+      cursor: grabbing;
+    }
+}
+
+.ui-draggable-dragging {
+  z-index: 999;
+  // width: 10rem !important;
+  opacity: 0.75;
+  box-shadow: $shadow-3;
+  cursor: grabbing;
+}
+
+.droppable{
+  position: relative;
+  @include animate;
+  display: flex;
+  box-shadow: $inset-shadow-border;
+  border-radius: 0.25rem;
+  background: $clouds;
+  
+  .dragme {
+    margin: 1rem;
+    flex-grow: 1;  
+    box-shadow: $shadow-border; 
+  }
+}
+.droppable-highlight {
+  background: $highlight-color;
+  box-shadow: $inset-shadow-2;
+  border: 1px solid $asbestos;
+  
+  .dragme {
+    box-shadow: $shadow-2;
+    
+    &:not(.ui-draggable-dragging){
+      animation: mergeShake 5s infinite;
+    }
+  }
+  
+  &.drag-within {
+    background-color: $highlight-dark;
+  }
+}
+@function pow($number, $exponent) {
+  $value: 1;
+
+  @if $exponent > 0 {
+    @for $i from 1 through $exponent {
+      $value: $value * $number;
+    }
+  }
+
+  @return $value;
+}
+// returns 1, 2, 4, 8, 16, 32, etc
+@for $counter from 1 through 100 { 
+  $powNum: pow(2, $counter);
+  $Hcolor: $counter * 27;
+  .dragme[data-val="#{$powNum}"] {
+    background: transparentize(hsl($Hcolor, 90%, 60%), 0.33);
+    color: hsl($Hcolor, 90%, 18%);
+    font-size: 1.5em;
+  }  
+}
+
+// https://codepen.io/mikehobizal/pen/gOdmmr?editors=1100
+
+@keyframes bang {
+  from {
+    transform: translate3d(0,0,0);
+    opacity: 1;
+  }
+}
+.confetti-drop {
+  position: relative;
+  i {
+    visibility: visible;
+    z-index: 999;
+    position: absolute;
+    display: block;
+    left: 50%;
+    bottom: 0;
+    width: 3px;
+    height: 5px;
+    background: red;
+    opacity: 0;
+    
+    // &.more {
+    //   margin-bottom: 1rem;
+    // }
+    
+    @for $i from 1 to 10 {
+      &.more-#{$i} {
+        margin-bottom: clamp(0%, $i * 15%, 100%);
+      }
+    }
+  }
+  
+  @for $i from 1 through 50 {
+    i[fetti-#{$i}]{
+      transform: translate3d(random(190) - 100 + px,random(50) - 100 + px,0) rotate(random(360) + deg);
+      background: hsla(random(360),100%,50%,1);
+      animation: bang 700ms ease-out forwards;
+      opacity: 0;
+    }
+    
+    i.more-#{$i}{
+      animation-delay: $i * 100ms !important;
+    }
+  }
+}
+
+// settings
+
+input.settings {
+  // display: none;
+}
+
+$settings_list: (
+  "show_hints"
+);
+
+_labelChecked {
+    //TODO styling lbel checked using after + before
+}
+
+@each $item in $settings_list {
+  //TODO create the styling for each input/label pair
+}
+
+.settings_wrap {
+  label {
+    cursor: pointer;
+    padding: 1rem;
+    &:hover {
+      // background: $white;
+    }
+  }
+}
+input.settings:checked ~ .settings_wrap label {
+  background: green;
+} 
+
+////styles the cloned ghost
+
+li.ui-draggable-dragging {
+  list-style: none;
+}
+
+//////////////////// end pen
+
+
+//// codepen fix
+
+body {
+  margin-bottom: 6rem;
+}
