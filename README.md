@@ -2,7 +2,10 @@
 simple tiles game created in 24hr
 
 # Todo
-- [ ] make tiles non-selectable with cursor
+- [ ] quicklink to make new issue in-game
+- [ ] quicklink to repository in-game
+- [ ] comma-separated points score
+- [ ] make tile content non-selectable with cursor
 - [ ] allow 1 2 3 + mouse hover for input (no click)
 - [ ] convert partices to tsparticles
 - [ ] replace jqueryUI draggables with draggable.js (by shopify)
