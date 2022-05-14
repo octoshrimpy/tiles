@@ -9,6 +9,9 @@ simple tiles game created in 24hr
 - [ ] dark mode
 - [ ] settings panel (use #target for opening sidebar or something)
 - [ ] landscape mode
+- [ ] gamemode: timed. new tiles go away after x second and dont get refilled. if source tiles all go away, you lose. playing a tile into a droppable:not(self) refills source
+- [ ] gamemode: endless. always make sure the spawning tile can do a match
+- [ ] gamemode: batched. do not refill source until al source tiles have been used
 
 - [x] confetti
 - [x] scale confetti
