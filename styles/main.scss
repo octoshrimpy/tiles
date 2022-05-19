@@ -1,9 +1,4 @@
-//////////  sections   /////////////
-// octostyles
-// base
-// pen
-////////////////////////////////////
-
+@import './breakpoints';
 
 //////////////////// start octostyles
 @mixin animate {
@@ -106,6 +101,11 @@ body,html {
   max-width: 30rem; 
   display: flex;
   flex-direction: column;
+
+  @include respond-to('medium'){
+    max-width: initial;
+    font-size: 2em;
+  }
 }
 .wrap {
   position: relative;
@@ -141,12 +141,23 @@ body,html {
   border-radius: 0.5rem;
   box-shadow: $inset-shadow-1;
   background: $clouds;
-  
+
   .dragme {
     flex: 1;
     
     &:not(:first-child){
       margin-left: 1rem;
+    }
+
+  }  
+  
+  @include respond-to('medium'){
+    height: initial;
+    font-size: 1.5rem;
+
+    .dragme {   
+      padding-top: 4rem;
+      padding-bottom: 4rem;
     }
   }
 }
@@ -301,29 +312,11 @@ body,html {
 
 // settings
 
-input.settings {
-  // display: none;
-}
-
-$settings_list: (
-  "show_hints"
-);
-
-_labelChecked {
-    //TODO styling lbel checked using after + before
-}
-
-@each $item in $settings_list {
-  //TODO create the styling for each input/label pair
-}
-
 .settings_wrap {
   label {
     cursor: pointer;
     padding: 1rem;
-    &:hover {
-      // background: $white;
-    }
+
   }
 }
 input.settings:checked ~ .settings_wrap label {
@@ -342,5 +335,6 @@ li.ui-draggable-dragging {
 //// codepen fix
 
 body {
-  margin-bottom: 6rem;
+  // margin-bottom: 6rem;
+  margin: 6rem 1rem;
 }
