@@ -54,6 +54,7 @@ function createDroppable($droppableObj, acceptString, deactivateFunc = function(
           $(this).removeClass('droppable-highlight');
           $(this).removeClass('drag-within');
         });
+        checkMoves()
       },
       over: function(event, ui){
         $(this).addClass('drag-within');
@@ -98,7 +99,7 @@ function addToDroppable(event, ui){
   }
   
   // console.log($droppableContainer.children)
-  runConfetti($droppableContainer, dataVal)
+  runConfetti($droppableContainer, dataVal) 
   
   // add more tiles if pulled from source
   if($parent[0].classList.contains('source')) {
@@ -255,43 +256,6 @@ function addMore(count = 1){
     addTo.append(newElm)
   }
   
-  //TODO fix moves count not being accurate
-  let workingMoves = 0
-  let source = document.querySelector('.source')
-  let board = document.querySelector('.board')
-  
-  if (source.children.length != 0) {
-
-    // moves from source
-    let sourceMoves = 0
-    source.querySelectorAll('.dragme').forEach(elm => {
-      let currentMoves = checkDrops(elm)
-      sourceMoves += currentMoves
-    })
-    // console.log('moves from source:', sourceMoves)
-
-    // moves within the board
-    let boardMoves = 0
-    board.querySelectorAll('.droppable .dragme').forEach(elm => {
-      let currentMoves = checkDrops(elm)
-      // because you can always drop it back to where it was before
-      if (currentMoves > 0) {currentMoves -= 1}
-      boardMoves += currentMoves
-    })
-    // console.log('moves from board:', boardMoves)
-    
-    
-    workingMoves = boardMoves + sourceMoves
-    // console.log('total moves:', workingMoves)
-
-    if (workingMoves == 0){
-    //TODO calculate score on game over
-      alert("game over!")
-      return
-    }
-    
-  }
-  
   createDraggable( draggingSelector, $(draggable) )
   //remove confetti after a second
   window.setTimeout(()=>{
@@ -306,4 +270,44 @@ function ranPowOfTwo(min=1, max=10) {
   return 2 ** Math.floor(Math.random()*(max - min + 1) + min);
 }
 
+function checkMoves(){
+  
+  //@think I believe moves being off from source has been fixed
+  let workingMoves = 0
+  let source = document.querySelector('.source')
+  let board = document.querySelector('.board')
+  
+  if (source.children.length != 0) {
 
+    // moves from source
+    let sourceMoves = 0
+    source.querySelectorAll('.dragme').forEach(elm => {
+      let currentMoves = checkDrops(elm)
+      // because you can always drop it back to where it was before
+      if (currentMoves > 0) {currentMoves -= 1}
+      sourceMoves += currentMoves
+    })
+    console.log('moves from source:', sourceMoves)
+
+    // moves within the board
+    let boardMoves = 0
+    board.querySelectorAll('.droppable .dragme').forEach(elm => {
+      let currentMoves = checkDrops(elm)
+      // because you can always drop it back to where it was before
+      if (currentMoves > 0) {currentMoves -= 1}
+      boardMoves += currentMoves
+    })
+    console.log('moves from board:', boardMoves)
+    
+    
+    workingMoves = boardMoves + sourceMoves
+    // console.log('total moves:', workingMoves)
+
+    if (workingMoves == 0){
+    //@think redo end score alert
+      alert("game over!")
+      return
+    }
+    
+  }
+}
