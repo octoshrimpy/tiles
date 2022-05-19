@@ -79,6 +79,7 @@ function addToDroppable(event, ui){
   let parentisEmpty = $droppableContainer.querySelectorAll('.dragme:not(.revert-to-me):not(.ui-draggable-dragging)').length == 0 
   || $droppableContainer.childNodes.length == 0
   
+  let wasOnBoard = $item[0].closest('.board')
   let dataVal = 0
   let droppedInto
   if (parentisEmpty) {
@@ -104,6 +105,16 @@ function addToDroppable(event, ui){
     addMore()
   }
   
+  // if pulling from board and placing on board without merging
+  if (parentisEmpty && wasOnBoard){
+    return
+  }
+  // pulling from source straight into a merge, counts both as placement and merge
+  if (!wasOnBoard && !parentisEmpty) {
+    updateScoreWith(dataVal * 1.5)
+    return
+  }
+  // default merge
   updateScoreWith(dataVal)
 }
 
@@ -148,16 +159,22 @@ function createFetti(count){
   return elms
 }
 
-function checkDrops(val){
- let dropsAvailable = 0
+function checkDrops(dragElm){
+  let val = dragElm.getAttribute('data-val') 
+  let dropsAvailable = 0
   document.querySelectorAll(droppable).forEach((elm) => {
     let dropObjVal = elm.getAttribute('data-val')
     $(elm).droppable("disable")
-    if(elm.childNodes.length == 0 || !!elm.querySelector(`[data-val="${val}"]`)){
+    if(
+      (elm.childNodes.length == 0 
+      || !!elm.querySelector(`[data-val="${val}"]`))
+      // && !elm.querySelector('.revert-to-me')
+    ){
       $(elm).droppable("enable")
       dropsAvailable +=1
     }
   })
+
   
   return dropsAvailable
 }
@@ -166,8 +183,6 @@ function createDraggable(selector, parentObj){
   $(selector, parentObj).draggable({
     helper: 'clone',
     start: function(event, ui){
-      let val = this.getAttribute('data-val')
-      checkDrops(val)
       ui.helper.css({
         'height': $(this).outerHeight(),
         'width': $(this).outerWidth()
@@ -175,8 +190,10 @@ function createDraggable(selector, parentObj){
       $(this)
         .invisible()
         .addClass('revert-to-me')
+      $(this).parent().addClass('dragging-child')
         // .slideUp()
         // .animate({width: 'toggle', padding: 'toggle', margin: 'toggle'})
+      checkDrops(this)
     },
     stop: function(event, ui){
 
@@ -213,7 +230,8 @@ function createDraggable(selector, parentObj){
       moveClone().done(function(){
         $item
           .visible()
-          .removeClass('revert-to-me');
+          .removeClass('revert-to-me')
+        $item.parent().removeClass('dragging-child')
       });
     }
   });
@@ -247,7 +265,7 @@ function addMore(count = 1){
     // moves from source
     let sourceMoves = 0
     source.querySelectorAll('.dragme').forEach(elm => {
-      let currentMoves = checkDrops(elm.getAttribute('data-val'))
+      let currentMoves = checkDrops(elm)
       sourceMoves += currentMoves
     })
     // console.log('moves from source:', sourceMoves)
@@ -255,7 +273,7 @@ function addMore(count = 1){
     // moves within the board
     let boardMoves = 0
     board.querySelectorAll('.droppable .dragme').forEach(elm => {
-      let currentMoves = checkDrops(elm.getAttribute('data-val'))
+      let currentMoves = checkDrops(elm)
       // because you can always drop it back to where it was before
       if (currentMoves > 0) {currentMoves -= 1}
       boardMoves += currentMoves
