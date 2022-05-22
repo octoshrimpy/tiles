@@ -1,7 +1,8 @@
 $breakpoints: (
   'small':  ('min': 1px, 'max': 600px),
   'medium': ('min': 601px, 'max': 999px),
-  'large':  ('min': 1200px, 'max': 9999px)
+  'large':  ('min': 1200px, 'max': 9999px),
+  'medium-up':  ('min': 601px, 'max': 9999px)
 ) !default;
 
 /// Mixin to manage responsive breakpoints

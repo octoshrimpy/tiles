@@ -249,7 +249,7 @@ function addMore(count = 1){
     let value = ranPowOfTwo()
 
     let newElm = document.createElement('div')
-    newElm.classList.add('dragme')
+    newElm.classList.add('dragme', 'is-silver', 'is-text-midnight')
     newElm.setAttribute('data-val', value)
     newElm.innerText = value
 
