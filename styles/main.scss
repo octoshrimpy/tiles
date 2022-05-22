@@ -120,7 +120,7 @@ body,html, .body_wrap {
   left: 0;
 
   @include respond-to('medium'){
-    max-width: initial;
+    max-width: auto;
     font-size: 2em;
   }
 
@@ -169,7 +169,7 @@ body,html, .body_wrap {
   }  
   
   @include respond-to('medium'){
-    height: initial;
+    height: auto;
     font-size: 1.5rem;
 
     .dragme {   
