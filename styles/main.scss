@@ -96,6 +96,10 @@ $highlight-hover: #a3e1be;
   box-sizing: border-box;
 }
 
+body {
+  position: relative;
+}
+
 body,html, .body_wrap {
   margin: 0;
   padding: 0;
@@ -109,6 +113,10 @@ body,html, .body_wrap {
   
 }
 
+.body_wrap {
+  position: absolute;
+}
+
 .game {
   height: 100%;
   width: 100%;
@@ -119,8 +127,8 @@ body,html, .body_wrap {
   @include animate;
   left: 0;
 
-  @include respond-to('medium'){
-    max-width: auto;
+  @include respond-to('medium-up'){
+    max-width: initial;
     font-size: 2em;
   }
 
@@ -169,7 +177,7 @@ body,html, .body_wrap {
   }  
   
   @include respond-to('medium'){
-    height: auto;
+    height: initial;
     font-size: 1.5rem;
 
     .dragme {   
@@ -349,6 +357,7 @@ body,html, .body_wrap {
     @include animate;
     height: 2rem;
     width: 2rem;
+    overflow: visible;
     
     &:after {
       position: absolute;
