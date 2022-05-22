@@ -305,7 +305,7 @@ function checkMoves(){
 
     if (workingMoves == 0){
     //@think redo end score alert
-      alert("game over!")
+      //alert("game over!")
       return
     }
     
