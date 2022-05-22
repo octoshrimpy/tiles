@@ -81,6 +81,9 @@ $highlight-hover: #a3e1be;
   }
 }
 //////////////////// start pen
+* {
+  box-sizing: border-box;
+}
 
 body,html {
   margin: 0;
@@ -101,10 +104,28 @@ body,html {
   max-width: 30rem; 
   display: flex;
   flex-direction: column;
+  padding: 6rem 1rem;
+  @include animate;
+  left: 0;
 
   @include respond-to('medium'){
     max-width: initial;
     font-size: 2em;
+  }
+
+  
+  position: relative;
+  &:after {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    content: '';
+    background: rgba(0,0,0,0.5);
+    @include animate;
+    opacity: 0;
+    pointer-events:none;
   }
 }
 .wrap {
@@ -311,30 +332,100 @@ body,html {
 }
 
 // settings
-
+.settings_hide {
+  display: none;
+}
 .settings_wrap {
+  position: absolute;
+  height: 100%;
+  width: 75%;
+  right: 100%;
+  display: flex;
+  @include animate;
+  z-index: 90;
+
+  .settings_btn {
+    box-sizing: content-box;
+    position:absolute;
+    right: -4rem;
+    @include animate;
+    height: 2rem;
+    width: 2rem;
+
+    .gear {
+      height: 2rem;
+      width: 2rem;
+      position: absolute;
+      display: initial;
+    }
+    .close {
+      height: 2rem;
+      width: 2rem;
+      position: absolute;
+      display: none;
+    }
+  }
+
+  .settings_content {  
+    padding: 1rem;
+  }
+
+
   label {
     cursor: pointer;
     padding: 1rem;
-
   }
 }
+
 input.settings:checked ~ .settings_wrap label {
   background: green;
 } 
 
-////styles the cloned ghost
+
+#settings_btn:checked {
+  & ~ .settings_wrap {
+    right: 25%;
+
+    .settings_btn {
+      right: 1rem;
+
+      .gear {
+        display: none;
+      }
+      .close {
+        display: initial;
+      }
+    }
+  } 
+
+  & ~ .game {
+    left: 75%;
+    &:after {
+      pointer-events: all;
+      opacity: 1;
+    }
+  }
+  
+}
+
+
+// end settings
 
 li.ui-draggable-dragging {
   list-style: none;
 }
 
-//////////////////// end pen
 
-
-//// codepen fix
-
-body {
-  // margin-bottom: 6rem;
-  margin: 6rem 1rem;
+.icon {
+  display: inline-flex;
+  
+  line-height: 1;
+  text-rendering: auto;
+  box-sizing: border-box;
+  text-align: center;
+  svg {
+      height: 100%;
+      width: 100%;
+      box-sizing: border-box;
+  }
 }

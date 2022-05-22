@@ -10,7 +10,8 @@ simple tiles game created in 24hr
 - [ ] allow 1 2 3 + mouse hover for input (no click)
 - [ ] convert partices to tsparticles
 - [ ] replace jqueryUI draggables with draggable.js (by shopify)
-- [ ] dark mode
+- [o] dark mode
+- [o] analytics
 - [ ] settings panel (use #target for opening sidebar or something)
 - [ ] landscape mode
 - [ ] gamemode: request: game requests a certain tile, gotta merge it and drop it into the "turn in" bit (new UI)
