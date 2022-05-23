@@ -121,7 +121,7 @@ function addToDroppable(event, ui){
 
 function updateScoreWith(val) {
   let scoreElm = document.querySelector('.score')
-  let oldScore = Number(scoreElm.innerText)
+  let oldScore = Number(scoreElm.innerText.replaceAll(',',''))
   let newScore = oldScore + val
   scoreElm.innerText = Number(newScore).toLocaleString()
 }
