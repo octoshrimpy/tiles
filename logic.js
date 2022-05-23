@@ -82,7 +82,8 @@ function addToDroppable(event, ui){
   
   let wasOnBoard = $item[0].closest('.board')
   let dataVal = 0
-  let droppedInto
+
+  // dropping into empty slot
   if (parentisEmpty) {
     dataVal = Number($item[0].getAttribute('data-val'))
     $item.detach().appendTo($droppableContainer);  
@@ -95,11 +96,19 @@ function addToDroppable(event, ui){
     $parent[0].removeChild($ghost[0])
     dataVal = Number(child.getAttribute('data-val')) * 2
     child.setAttribute('data-val', dataVal)
-    child.innerText = dataVal
+    
+    let tileContent
+    if (dataVal > 9999) {
+      tileContent = `${dataVal.toString().slice(0, -3)}k`
+    } else {
+      tileContent = dataVal
+    }
+    child.innerText = tileContent
   }
   
   // console.log($droppableContainer.children)
   runConfetti($droppableContainer, dataVal) 
+
   
   // add more tiles if pulled from source
   if($parent[0].classList.contains('source')) {
@@ -147,6 +156,14 @@ function runConfetti($parent, val) {
     
     $parent.classList.add('confetti-drop')
   }
+
+    //remove confetti after a second
+  window.setTimeout(()=>{
+    document.querySelectorAll('.confetti-drop').forEach(item => {
+      item.querySelectorAll('i').forEach(i => item.removeChild(i))
+      item.classList.remove('confetti-drop')
+    })
+  }, 800)
 }
 
 function createFetti(count){
@@ -257,13 +274,6 @@ function addMore(count = 1){
   }
   
   createDraggable( draggingSelector, $(draggable) )
-  //remove confetti after a second
-  window.setTimeout(()=>{
-    document.querySelectorAll('.confetti-drop').forEach(item => {
-      item.querySelectorAll('i').forEach(i => item.removeChild(i))
-      item.classList.remove('confetti-drop')
-    })
-  }, 800)
 }
 
 function ranPowOfTwo(min=1, max=10) {

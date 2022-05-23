@@ -176,6 +176,10 @@ body, html, .body_wrap {
 .dragme {
   cursor: -webkit-grab;
   cursor: grab;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .dragme:active {
   cursor: -webkit-grabbing;
@@ -875,8 +879,8 @@ body, html, .body_wrap {
   margin-bottom: 100%;
 }
 .confetti-drop i[fetti-1] {
-  transform: translate3d(73px, -95px, 0) rotate(193deg);
-  background: hsl(309deg, 100%, 50%);
+  transform: translate3d(-47px, -54px, 0) rotate(179deg);
+  background: hsl(77deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -886,8 +890,8 @@ body, html, .body_wrap {
           animation-delay: 100ms !important;
 }
 .confetti-drop i[fetti-2] {
-  transform: translate3d(-69px, -52px, 0) rotate(27deg);
-  background: hsl(211deg, 100%, 50%);
+  transform: translate3d(50px, -91px, 0) rotate(54deg);
+  background: hsl(55deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -897,8 +901,8 @@ body, html, .body_wrap {
           animation-delay: 200ms !important;
 }
 .confetti-drop i[fetti-3] {
-  transform: translate3d(-1px, -53px, 0) rotate(196deg);
-  background: hsl(173deg, 100%, 50%);
+  transform: translate3d(-86px, -60px, 0) rotate(84deg);
+  background: hsl(301deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -908,8 +912,8 @@ body, html, .body_wrap {
           animation-delay: 300ms !important;
 }
 .confetti-drop i[fetti-4] {
-  transform: translate3d(42px, -96px, 0) rotate(297deg);
-  background: hsl(30deg, 100%, 50%);
+  transform: translate3d(67px, -76px, 0) rotate(13deg);
+  background: hsl(63deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -919,8 +923,8 @@ body, html, .body_wrap {
           animation-delay: 400ms !important;
 }
 .confetti-drop i[fetti-5] {
-  transform: translate3d(84px, -93px, 0) rotate(319deg);
-  background: hsl(70deg, 100%, 50%);
+  transform: translate3d(-12px, -51px, 0) rotate(343deg);
+  background: hsl(112deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -930,8 +934,8 @@ body, html, .body_wrap {
           animation-delay: 500ms !important;
 }
 .confetti-drop i[fetti-6] {
-  transform: translate3d(-75px, -51px, 0) rotate(251deg);
-  background: hsl(353deg, 100%, 50%);
+  transform: translate3d(-10px, -67px, 0) rotate(214deg);
+  background: hsl(217deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -941,8 +945,8 @@ body, html, .body_wrap {
           animation-delay: 600ms !important;
 }
 .confetti-drop i[fetti-7] {
-  transform: translate3d(22px, -71px, 0) rotate(289deg);
-  background: hsl(257deg, 100%, 50%);
+  transform: translate3d(1px, -82px, 0) rotate(105deg);
+  background: hsl(132deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -952,8 +956,8 @@ body, html, .body_wrap {
           animation-delay: 700ms !important;
 }
 .confetti-drop i[fetti-8] {
-  transform: translate3d(-22px, -82px, 0) rotate(316deg);
-  background: hsl(211deg, 100%, 50%);
+  transform: translate3d(-13px, -91px, 0) rotate(127deg);
+  background: hsl(151deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -963,8 +967,8 @@ body, html, .body_wrap {
           animation-delay: 800ms !important;
 }
 .confetti-drop i[fetti-9] {
-  transform: translate3d(16px, -96px, 0) rotate(315deg);
-  background: hsl(1deg, 100%, 50%);
+  transform: translate3d(71px, -80px, 0) rotate(231deg);
+  background: hsl(304deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -974,8 +978,8 @@ body, html, .body_wrap {
           animation-delay: 900ms !important;
 }
 .confetti-drop i[fetti-10] {
-  transform: translate3d(-28px, -54px, 0) rotate(238deg);
-  background: hsl(335deg, 100%, 50%);
+  transform: translate3d(-65px, -79px, 0) rotate(341deg);
+  background: hsl(320deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -985,8 +989,8 @@ body, html, .body_wrap {
           animation-delay: 1000ms !important;
 }
 .confetti-drop i[fetti-11] {
-  transform: translate3d(23px, -98px, 0) rotate(217deg);
-  background: hsl(202deg, 100%, 50%);
+  transform: translate3d(6px, -80px, 0) rotate(254deg);
+  background: hsl(91deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -996,8 +1000,8 @@ body, html, .body_wrap {
           animation-delay: 1100ms !important;
 }
 .confetti-drop i[fetti-12] {
-  transform: translate3d(64px, -85px, 0) rotate(215deg);
-  background: hsl(115deg, 100%, 50%);
+  transform: translate3d(-85px, -57px, 0) rotate(357deg);
+  background: hsl(323deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1007,8 +1011,8 @@ body, html, .body_wrap {
           animation-delay: 1200ms !important;
 }
 .confetti-drop i[fetti-13] {
-  transform: translate3d(-82px, -78px, 0) rotate(168deg);
-  background: hsl(222deg, 100%, 50%);
+  transform: translate3d(11px, -83px, 0) rotate(308deg);
+  background: hsl(291deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1018,8 +1022,8 @@ body, html, .body_wrap {
           animation-delay: 1300ms !important;
 }
 .confetti-drop i[fetti-14] {
-  transform: translate3d(32px, -81px, 0) rotate(81deg);
-  background: hsl(47deg, 100%, 50%);
+  transform: translate3d(6px, -84px, 0) rotate(95deg);
+  background: hsl(345deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1029,8 +1033,8 @@ body, html, .body_wrap {
           animation-delay: 1400ms !important;
 }
 .confetti-drop i[fetti-15] {
-  transform: translate3d(36px, -93px, 0) rotate(73deg);
-  background: hsl(19deg, 100%, 50%);
+  transform: translate3d(89px, -63px, 0) rotate(310deg);
+  background: hsl(129deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1040,8 +1044,8 @@ body, html, .body_wrap {
           animation-delay: 1500ms !important;
 }
 .confetti-drop i[fetti-16] {
-  transform: translate3d(68px, -77px, 0) rotate(165deg);
-  background: hsl(70deg, 100%, 50%);
+  transform: translate3d(-10px, -89px, 0) rotate(203deg);
+  background: hsl(81deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1051,8 +1055,8 @@ body, html, .body_wrap {
           animation-delay: 1600ms !important;
 }
 .confetti-drop i[fetti-17] {
-  transform: translate3d(10px, -82px, 0) rotate(82deg);
-  background: hsl(351deg, 100%, 50%);
+  transform: translate3d(51px, -98px, 0) rotate(256deg);
+  background: hsl(169deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1062,8 +1066,8 @@ body, html, .body_wrap {
           animation-delay: 1700ms !important;
 }
 .confetti-drop i[fetti-18] {
-  transform: translate3d(90px, -50px, 0) rotate(92deg);
-  background: hsl(210deg, 100%, 50%);
+  transform: translate3d(-5px, -57px, 0) rotate(6deg);
+  background: hsl(52deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1073,8 +1077,8 @@ body, html, .body_wrap {
           animation-delay: 1800ms !important;
 }
 .confetti-drop i[fetti-19] {
-  transform: translate3d(-46px, -59px, 0) rotate(163deg);
-  background: hsl(193deg, 100%, 50%);
+  transform: translate3d(-55px, -85px, 0) rotate(98deg);
+  background: hsl(162deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1084,8 +1088,8 @@ body, html, .body_wrap {
           animation-delay: 1900ms !important;
 }
 .confetti-drop i[fetti-20] {
-  transform: translate3d(-80px, -71px, 0) rotate(14deg);
-  background: hsl(345deg, 100%, 50%);
+  transform: translate3d(-55px, -93px, 0) rotate(209deg);
+  background: hsl(213deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1095,8 +1099,8 @@ body, html, .body_wrap {
           animation-delay: 2000ms !important;
 }
 .confetti-drop i[fetti-21] {
-  transform: translate3d(-7px, -57px, 0) rotate(181deg);
-  background: hsl(112deg, 100%, 50%);
+  transform: translate3d(-60px, -75px, 0) rotate(81deg);
+  background: hsl(37deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1106,8 +1110,8 @@ body, html, .body_wrap {
           animation-delay: 2100ms !important;
 }
 .confetti-drop i[fetti-22] {
-  transform: translate3d(-83px, -84px, 0) rotate(126deg);
-  background: hsl(346deg, 100%, 50%);
+  transform: translate3d(-38px, -67px, 0) rotate(175deg);
+  background: hsl(142deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1117,8 +1121,8 @@ body, html, .body_wrap {
           animation-delay: 2200ms !important;
 }
 .confetti-drop i[fetti-23] {
-  transform: translate3d(-39px, -68px, 0) rotate(354deg);
-  background: hsl(116deg, 100%, 50%);
+  transform: translate3d(78px, -60px, 0) rotate(259deg);
+  background: hsl(154deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1128,8 +1132,8 @@ body, html, .body_wrap {
           animation-delay: 2300ms !important;
 }
 .confetti-drop i[fetti-24] {
-  transform: translate3d(35px, -67px, 0) rotate(109deg);
-  background: hsl(10deg, 100%, 50%);
+  transform: translate3d(52px, -79px, 0) rotate(285deg);
+  background: hsl(69deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1139,8 +1143,8 @@ body, html, .body_wrap {
           animation-delay: 2400ms !important;
 }
 .confetti-drop i[fetti-25] {
-  transform: translate3d(63px, -79px, 0) rotate(163deg);
-  background: hsl(228deg, 100%, 50%);
+  transform: translate3d(-11px, -76px, 0) rotate(70deg);
+  background: hsl(353deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1150,8 +1154,8 @@ body, html, .body_wrap {
           animation-delay: 2500ms !important;
 }
 .confetti-drop i[fetti-26] {
-  transform: translate3d(-93px, -74px, 0) rotate(100deg);
-  background: hsl(181deg, 100%, 50%);
+  transform: translate3d(-90px, -64px, 0) rotate(189deg);
+  background: hsl(177deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1161,8 +1165,8 @@ body, html, .body_wrap {
           animation-delay: 2600ms !important;
 }
 .confetti-drop i[fetti-27] {
-  transform: translate3d(-42px, -52px, 0) rotate(164deg);
-  background: hsl(221deg, 100%, 50%);
+  transform: translate3d(35px, -65px, 0) rotate(357deg);
+  background: hsl(192deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1172,8 +1176,8 @@ body, html, .body_wrap {
           animation-delay: 2700ms !important;
 }
 .confetti-drop i[fetti-28] {
-  transform: translate3d(61px, -94px, 0) rotate(216deg);
-  background: hsl(159deg, 100%, 50%);
+  transform: translate3d(-38px, -61px, 0) rotate(67deg);
+  background: hsl(264deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1183,8 +1187,8 @@ body, html, .body_wrap {
           animation-delay: 2800ms !important;
 }
 .confetti-drop i[fetti-29] {
-  transform: translate3d(46px, -84px, 0) rotate(48deg);
-  background: hsl(69deg, 100%, 50%);
+  transform: translate3d(88px, -93px, 0) rotate(270deg);
+  background: hsl(329deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1194,8 +1198,8 @@ body, html, .body_wrap {
           animation-delay: 2900ms !important;
 }
 .confetti-drop i[fetti-30] {
-  transform: translate3d(16px, -58px, 0) rotate(156deg);
-  background: hsl(65deg, 100%, 50%);
+  transform: translate3d(-71px, -89px, 0) rotate(160deg);
+  background: hsl(171deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1205,8 +1209,8 @@ body, html, .body_wrap {
           animation-delay: 3000ms !important;
 }
 .confetti-drop i[fetti-31] {
-  transform: translate3d(19px, -52px, 0) rotate(34deg);
-  background: hsl(268deg, 100%, 50%);
+  transform: translate3d(90px, -80px, 0) rotate(355deg);
+  background: hsl(327deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1216,8 +1220,8 @@ body, html, .body_wrap {
           animation-delay: 3100ms !important;
 }
 .confetti-drop i[fetti-32] {
-  transform: translate3d(75px, -82px, 0) rotate(173deg);
-  background: hsl(227deg, 100%, 50%);
+  transform: translate3d(13px, -88px, 0) rotate(116deg);
+  background: hsl(17deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1227,8 +1231,8 @@ body, html, .body_wrap {
           animation-delay: 3200ms !important;
 }
 .confetti-drop i[fetti-33] {
-  transform: translate3d(52px, -61px, 0) rotate(105deg);
-  background: hsl(160deg, 100%, 50%);
+  transform: translate3d(-56px, -79px, 0) rotate(287deg);
+  background: hsl(343deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1238,8 +1242,8 @@ body, html, .body_wrap {
           animation-delay: 3300ms !important;
 }
 .confetti-drop i[fetti-34] {
-  transform: translate3d(18px, -59px, 0) rotate(69deg);
-  background: hsl(225deg, 100%, 50%);
+  transform: translate3d(88px, -65px, 0) rotate(331deg);
+  background: hsl(136deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1249,8 +1253,8 @@ body, html, .body_wrap {
           animation-delay: 3400ms !important;
 }
 .confetti-drop i[fetti-35] {
-  transform: translate3d(-93px, -76px, 0) rotate(102deg);
-  background: hsl(328deg, 100%, 50%);
+  transform: translate3d(-93px, -79px, 0) rotate(226deg);
+  background: hsl(201deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1260,8 +1264,8 @@ body, html, .body_wrap {
           animation-delay: 3500ms !important;
 }
 .confetti-drop i[fetti-36] {
-  transform: translate3d(-43px, -79px, 0) rotate(344deg);
-  background: hsl(95deg, 100%, 50%);
+  transform: translate3d(-17px, -93px, 0) rotate(102deg);
+  background: hsl(114deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1271,8 +1275,8 @@ body, html, .body_wrap {
           animation-delay: 3600ms !important;
 }
 .confetti-drop i[fetti-37] {
-  transform: translate3d(-5px, -50px, 0) rotate(240deg);
-  background: hsl(97deg, 100%, 50%);
+  transform: translate3d(-98px, -65px, 0) rotate(336deg);
+  background: hsl(234deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1282,8 +1286,8 @@ body, html, .body_wrap {
           animation-delay: 3700ms !important;
 }
 .confetti-drop i[fetti-38] {
-  transform: translate3d(-6px, -56px, 0) rotate(181deg);
-  background: hsl(174deg, 100%, 50%);
+  transform: translate3d(-32px, -81px, 0) rotate(306deg);
+  background: hsl(161deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1293,8 +1297,8 @@ body, html, .body_wrap {
           animation-delay: 3800ms !important;
 }
 .confetti-drop i[fetti-39] {
-  transform: translate3d(67px, -76px, 0) rotate(129deg);
-  background: hsl(22deg, 100%, 50%);
+  transform: translate3d(35px, -99px, 0) rotate(118deg);
+  background: hsl(126deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1304,8 +1308,8 @@ body, html, .body_wrap {
           animation-delay: 3900ms !important;
 }
 .confetti-drop i[fetti-40] {
-  transform: translate3d(7px, -74px, 0) rotate(281deg);
-  background: hsl(317deg, 100%, 50%);
+  transform: translate3d(44px, -69px, 0) rotate(123deg);
+  background: hsl(143deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1315,8 +1319,8 @@ body, html, .body_wrap {
           animation-delay: 4000ms !important;
 }
 .confetti-drop i[fetti-41] {
-  transform: translate3d(-42px, -97px, 0) rotate(150deg);
-  background: hsl(53deg, 100%, 50%);
+  transform: translate3d(63px, -69px, 0) rotate(328deg);
+  background: hsl(206deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1326,8 +1330,8 @@ body, html, .body_wrap {
           animation-delay: 4100ms !important;
 }
 .confetti-drop i[fetti-42] {
-  transform: translate3d(68px, -61px, 0) rotate(258deg);
-  background: hsl(348deg, 100%, 50%);
+  transform: translate3d(-74px, -79px, 0) rotate(47deg);
+  background: hsl(47deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1337,8 +1341,8 @@ body, html, .body_wrap {
           animation-delay: 4200ms !important;
 }
 .confetti-drop i[fetti-43] {
-  transform: translate3d(-60px, -98px, 0) rotate(66deg);
-  background: hsl(87deg, 100%, 50%);
+  transform: translate3d(-49px, -71px, 0) rotate(332deg);
+  background: hsl(347deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1348,8 +1352,8 @@ body, html, .body_wrap {
           animation-delay: 4300ms !important;
 }
 .confetti-drop i[fetti-44] {
-  transform: translate3d(-67px, -59px, 0) rotate(10deg);
-  background: hsl(24deg, 100%, 50%);
+  transform: translate3d(38px, -68px, 0) rotate(30deg);
+  background: hsl(12deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1359,8 +1363,8 @@ body, html, .body_wrap {
           animation-delay: 4400ms !important;
 }
 .confetti-drop i[fetti-45] {
-  transform: translate3d(-87px, -51px, 0) rotate(178deg);
-  background: hsl(218deg, 100%, 50%);
+  transform: translate3d(44px, -98px, 0) rotate(184deg);
+  background: hsl(40deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1370,7 +1374,7 @@ body, html, .body_wrap {
           animation-delay: 4500ms !important;
 }
 .confetti-drop i[fetti-46] {
-  transform: translate3d(-28px, -80px, 0) rotate(156deg);
+  transform: translate3d(81px, -89px, 0) rotate(77deg);
   background: hsl(308deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
@@ -1381,8 +1385,8 @@ body, html, .body_wrap {
           animation-delay: 4600ms !important;
 }
 .confetti-drop i[fetti-47] {
-  transform: translate3d(-71px, -99px, 0) rotate(52deg);
-  background: hsl(140deg, 100%, 50%);
+  transform: translate3d(10px, -75px, 0) rotate(189deg);
+  background: hsl(6deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1392,8 +1396,8 @@ body, html, .body_wrap {
           animation-delay: 4700ms !important;
 }
 .confetti-drop i[fetti-48] {
-  transform: translate3d(30px, -92px, 0) rotate(240deg);
-  background: hsl(246deg, 100%, 50%);
+  transform: translate3d(49px, -71px, 0) rotate(8deg);
+  background: hsl(231deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1403,8 +1407,8 @@ body, html, .body_wrap {
           animation-delay: 4800ms !important;
 }
 .confetti-drop i[fetti-49] {
-  transform: translate3d(88px, -79px, 0) rotate(244deg);
-  background: hsl(219deg, 100%, 50%);
+  transform: translate3d(77px, -61px, 0) rotate(358deg);
+  background: hsl(285deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1414,8 +1418,8 @@ body, html, .body_wrap {
           animation-delay: 4900ms !important;
 }
 .confetti-drop i[fetti-50] {
-  transform: translate3d(-19px, -73px, 0) rotate(116deg);
-  background: hsl(350deg, 100%, 50%);
+  transform: translate3d(-72px, -91px, 0) rotate(332deg);
+  background: hsl(253deg, 100%, 50%);
   -webkit-animation: bang 700ms ease-out forwards;
           animation: bang 700ms ease-out forwards;
   opacity: 0;
@@ -1614,6 +1618,11 @@ input#settings_darkmode:checked ~ .body_wrap .game .droppable-highlight.drag-wit
 input#settings_hints:checked ~ .body_wrap .game .droppable {
   border: none;
   box-shadow: none;
+}
+input#settings_hints:checked ~ .body_wrap .game .ui-droppable-active .dragme {
+  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+  -webkit-animation: none !important;
+          animation: none !important;
 }
 input#settings_hints:checked ~ .body_wrap .game .droppable-highlight {
   background: #ecf0f1;

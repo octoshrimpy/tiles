@@ -226,11 +226,12 @@ body,html, .body_wrap {
 
 //// dragging styles
 .dragme {
-    cursor: grab;
-  
-    &:active {
-      cursor: grabbing;
-    }
+  cursor: grab;
+  user-select: none;
+
+  &:active {
+    cursor: grabbing;
+  }
 }
 
 .ui-draggable-dragging {
@@ -562,6 +563,10 @@ input#settings_hints:checked {
     .droppable {
       border: none;
       box-shadow: none;
+    }
+    .ui-droppable-active .dragme {
+      box-shadow: $shadow-border;
+      animation: none !important;
     }
     .droppable-highlight {
       background: $clouds;
