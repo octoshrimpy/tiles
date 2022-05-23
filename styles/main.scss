@@ -489,6 +489,14 @@ input#settings_darkmode:checked ~ .body_wrap .settings_wrap label[for="settings_
 
   }
 }
+input#settings_hints:checked ~ .body_wrap .settings_wrap label[for="settings_hints"] .toggle {
+  background: $nephritis;
+  &:after {
+    background: $clouds;
+    left: 1.75rem;
+
+  }
+}
 
 // end settings
 
@@ -541,6 +549,39 @@ input#settings_darkmode:checked {
 
       &.drag-within {
         background: $turquoise;
+      }
+    }
+  }
+}
+
+
+// hide hints
+
+input#settings_hints:checked {
+  & ~ .body_wrap .game {
+    .droppable {
+      border: none;
+      box-shadow: none;
+    }
+    .droppable-highlight {
+      background: $clouds;
+      
+      &.drop-within {
+        background: $clouds;
+      }
+    }
+  }
+}
+
+input#settings_darkmode:checked ~ input#settings_hints:checked {
+  & ~ .body_wrap .game {
+    .droppable-highlight {
+      background: $asphalt;
+      border: inherit;
+      box-shadow: inherit;
+      
+      &.drop-within {
+        background: $asphalt;
       }
     }
   }
