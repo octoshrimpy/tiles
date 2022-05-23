@@ -6,7 +6,6 @@ simple tiles game created in 24hr
 - [ ] quicklink to make new issue in-game
 - [ ] quicklink to repository in-game
 - [ ] green dropzones be random different colors every time
-- [ ] comma-separated points score
 - [ ] make tile content non-selectable with cursor
 - [ ] allow 1 2 3 + mouse hover for input (no click)
 - [ ] convert partices to tsparticles
@@ -17,6 +16,7 @@ simple tiles game created in 24hr
 - [ ] gamemode: endless. always make sure the spawning tile can do a match
 - [ ] gamemode: batched. do not refill source until al source tiles have been used
 
+- [x] comma-separated points score
 - [x] settings panel (use #target for opening sidebar or something)
 - [x] dark mode
 - [x] confetti

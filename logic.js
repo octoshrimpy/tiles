@@ -123,7 +123,7 @@ function updateScoreWith(val) {
   let scoreElm = document.querySelector('.score')
   let oldScore = Number(scoreElm.innerText)
   let newScore = oldScore + val
-  scoreElm.innerText = newScore
+  scoreElm.innerText = Number(newScore).toLocaleString()
 }
 
 function runConfetti($parent, val) {
@@ -272,7 +272,6 @@ function ranPowOfTwo(min=1, max=10) {
 
 function checkMoves(){
   
-  //@think I believe moves being off from source has been fixed
   let workingMoves = 0
   let source = document.querySelector('.source')
   let board = document.querySelector('.board')

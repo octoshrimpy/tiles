@@ -132,10 +132,10 @@ body,html, .body_wrap {
   }
   @include respond-to('medium'){
     padding: 2rem 1rem;
+    font-size: 1.5em;
   }
-  @include respond-to('medium-up'){
-    // max-width: initial;
-    font-size: 2em;
+  @include respond-to('large'){
+    font-size: 1.5em;
   }
 
   
