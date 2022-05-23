@@ -121,12 +121,18 @@ body,html, .body_wrap {
   height: 100%;
   width: 100%;
   max-width: 30rem; 
+  padding: 6rem 1rem;
   display: flex;
   flex-direction: column;
-  padding: 6rem 1rem;
   @include animate;
   left: 0;
-
+  
+  @include respond-to('small'){
+    padding: 2rem 1rem;
+  }
+  @include respond-to('medium'){
+    padding: 2rem 1rem;
+  }
   @include respond-to('medium-up'){
     max-width: initial;
     font-size: 2em;
