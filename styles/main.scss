@@ -134,7 +134,7 @@ body,html, .body_wrap {
     padding: 2rem 1rem;
   }
   @include respond-to('medium-up'){
-    max-width: initial;
+    // max-width: initial;
     font-size: 2em;
   }
 
