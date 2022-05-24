@@ -201,10 +201,18 @@ body, html {
   
   @include respond-to('small'){
     padding: 2rem 1rem;
+    & > * {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
   }
   @include respond-to('medium'){
     padding: 2rem 1rem;
     font-size: 1.5em;
+    & > * {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
   }
   @include respond-to('large'){
     font-size: 1.5em;
@@ -219,6 +227,13 @@ body, html {
   grid-template-rows: repeat(3, 1fr);
   grid-gap: 1rem;
   margin: 1rem;
+
+  @include respond-to('medium') {
+    grid-gap: 0.5rem;
+  }
+  @include respond-to('small') {
+    grid-gap: 0.25rem;
+  }
 }
 
 .source {
@@ -248,8 +263,6 @@ body, html {
   }
 }
 
-.dragme {
-}
 .dragme {
   position: relative;
   display: flex;
