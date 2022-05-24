@@ -1,6 +1,21 @@
 @import './breakpoints';
 
-//////////////////// start octostyles
+
+/*
+ 
+              .               oooo   o8o   .o8       
+            .o8               `888   `"'  "888       
+  .oooo.o .o888oo oooo    ooo  888  oooo   888oooo.  
+ d88(  "8   888    `88.  .8'   888  `888   d88' `88b 
+ `"Y88b.    888     `88..8'    888   888   888   888 
+ o.  )88b   888 .    `888'     888   888   888   888 
+ 8""888P'   "888"     .8'     o888o o888o  `Y8bod8P' 
+                  .o..P'                             
+                  `Y8P'                              
+                                                     
+ 
+*/
+
 @mixin animate {
   transition: all .15s ease-in-out;
 }
@@ -50,18 +65,27 @@ $inset-shadow-5: inset 0 19px 38px rgba(0,0,0,0.30), inset 0 15px 12px rgba(0,0,
 $inset-shadow-border: inset 0 2px 3px rgba(10,10,10,.1), inset 0 0 0 1px rgba(10,10,10,.1);
 
 
-//////////////////// end octostyles
-
-//////////////////// start base
+/*
+ 
+                                                                              
+                                                                              
+  .oooo.   oo.ooooo.  oo.ooooo.       oooo    ooo  .oooo.   oooo d8b  .oooo.o 
+ `P  )88b   888' `88b  888' `88b       `88.  .8'  `P  )88b  `888""8P d88(  "8 
+  .oP"888   888   888  888   888        `88..8'    .oP"888   888     `"Y88b.  
+ d8(  888   888   888  888   888         `888'    d8(  888   888     o.  )88b 
+ `Y888""8o  888bod8P'  888bod8P'          `8'     `Y888""8o d888b    8""888P' 
+            888        888                                                    
+           o888o      o888o                                                   
+                                                                              
+ 
+*/
 
 //// colors
 $highlight-color: #caeed9;
-$highlight-dark: darken($highlight-color, 15%);
+$highlight-dark : darken($highlight-color, 15%);
 $highlight-hover: #a3e1be;
 
-//// layout
 
-//////////////////// end base
 
 @keyframes mergeShake {
   0% {
@@ -82,196 +106,37 @@ $highlight-hover: #a3e1be;
 }
 
 
-.is-clouds {
-  background: $clouds;
-}
-.is-silver {
-  background: $silver;
-}
-.is-text-midnight {
-  color: $midnight;
-}
+.is-clouds { background: $clouds; }
+.is-silver { background: $silver; }
+.is-text-midnight { color: $midnight; }
 
-* {
-  box-sizing: border-box;
-}
-
-body {
-  position: relative;
-}
-
-body,html, .body_wrap {
-  margin: 0;
+* { box-sizing: border-box; }
+body, html { 
+  position: relative; 
   padding: 0;
+  margin: 0;
   height: 100%;
   width: 100%;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  font-family: sans-serif;
-  align-items: center;
-  
 }
 
-.body_wrap {
-  position: absolute;
-}
 
-.game {
-  height: 100%;
-  width: 100%;
-  max-width: 30rem; 
-  padding: 6rem 1rem;
-  display: flex;
-  flex-direction: column;
-  @include animate;
-  left: 0;
-  
-  @include respond-to('small'){
-    padding: 2rem 1rem;
-  }
-  @include respond-to('medium'){
-    padding: 2rem 1rem;
-    font-size: 1.5em;
-  }
-  @include respond-to('large'){
-    font-size: 1.5em;
-  }
 
-  
-  position: relative;
-}
+/*
+ 
+  .o88o.                                       .    o8o                                 
+  888 `"                                     .o8    `"'                                 
+ o888oo  oooo  oooo  ooo. .oo.    .ooooo.  .o888oo oooo   .ooooo.  ooo. .oo.    .oooo.o 
+  888    `888  `888  `888P"Y88b  d88' `"Y8   888   `888  d88' `88b `888P"Y88b  d88(  "8 
+  888     888   888   888   888  888         888    888  888   888  888   888  `"Y88b.  
+  888     888   888   888   888  888   .o8   888 .  888  888   888  888   888  o.  )88b 
+ o888o    `V88V"V8P' o888o o888o `Y8bod8P'   "888" o888o `Y8bod8P' o888o o888o 8""888P' 
+                                                                                        
+                                                                                        
+                                                                                        
+ 
+*/
 
-.wrap {
-  position: relative;
-  flex-grow: 1;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  grid-gap: 1rem;
-  margin: 1rem;
-}
-
-.dragme {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0.75rem;
-  font-weight: bold;
-  text-align: center;
-  box-shadow: $shadow-border;
-  &:not(.ui-draggable-dragging) {  
-    transition: box-shadow 0.15s ease-in-out;
-  }
-}
-.source {
-  display: flex;
-  padding: 1rem;
-  margin: 1rem;
-  height: 5rem;
-  border-radius: 0.5rem;
-  box-shadow: $inset-shadow-1;
-
-  .dragme {
-    flex: 1;
-    
-    &:not(:first-child){
-      margin-left: 1rem;
-    }
-
-  }  
-  
-  @include respond-to('medium'){
-    height: initial;
-    font-size: 1.5rem;
-
-    .dragme {   
-      padding-top: 4rem;
-      padding-bottom: 4rem;
-    }
-  }
-}
-
-.score {
-  display: flex;
-  margin: 0.5rem 1rem 0;
-  justify-content: flex-end;
-  align-items: center;
-  height: 3rem;
-  font-size: 1.5em;
-  &:after {
-    padding-left: 0.5rem;
-    content: "pts";
-  }
-}
-.button {
-  align-self: center;
-  border: 2px solid $midnight;
-  border-bottom-width: 12px;
-  margin: 0 1rem;
-  font-size: 1.5em;
-  padding: 0.5rem;
-
-  cursor: pointer;
-  transition: ease-in-out 0.1s all;
-  
-  &:active {
-    border-bottom-width: 4px;
-    // margin-bottom: 2px;
-    margin-top: 8px;
-  }
-
-}
-
-//// dragging styles
-.dragme {
-  cursor: grab;
-  user-select: none;
-
-  &:active {
-    cursor: grabbing;
-  }
-}
-
-.ui-draggable-dragging {
-  z-index: 999;
-  // width: 10rem !important;
-  opacity: 0.75;
-  box-shadow: $shadow-3;
-  cursor: grabbing;
-}
-
-.droppable{
-  position: relative;
-  @include animate;
-  display: flex;
-  box-shadow: $inset-shadow-border;
-  border-radius: 0.25rem;
-  
-  .dragme {
-    margin: 1rem;
-    flex-grow: 1;  
-    box-shadow: $shadow-border; 
-  }
-}
-.droppable-highlight {
-  background: $highlight-color;
-  box-shadow: $inset-shadow-2;
-  border: 1px solid $asbestos;
-  
-  .dragme {
-    box-shadow: $shadow-2;
-    
-    &:not(.ui-draggable-dragging){
-      animation: mergeShake 5s infinite;
-    }
-  }
-  
-  &.drag-within {
-    background-color: $highlight-dark;
-  }
-}
 @function pow($number, $exponent) {
   $value: 1;
 
@@ -294,6 +159,207 @@ body,html, .body_wrap {
   }  
 }
 
+/*
+ 
+                                                  
+                                                  
+  .oooooooo  .oooo.   ooo. .oo.  .oo.    .ooooo.  
+ 888' `88b  `P  )88b  `888P"Y88bP"Y88b  d88' `88b 
+ 888   888   .oP"888   888   888   888  888ooo888 
+ `88bod8P'  d8(  888   888   888   888  888    .o 
+ `8oooooo.  `Y888""8o o888o o888o o888o `Y8bod8P' 
+ d"     YD                                        
+ "Y88888P'                                        
+                                                  
+ 
+*/
+
+
+.body_wrap {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  align-items: center;  
+}
+
+.game {
+  height: 100%;
+  width: 100%;
+  max-width: 30rem; 
+  padding: 6rem 1rem;
+  display: flex;
+  flex-direction: column;
+  @include animate;
+  left: 0;
+  position: relative;
+  
+  @include respond-to('small'){
+    padding: 2rem 1rem;
+  }
+  @include respond-to('medium'){
+    padding: 2rem 1rem;
+    font-size: 1.5em;
+  }
+  @include respond-to('large'){
+    font-size: 1.5em;
+  }
+}
+
+.board {
+  position: relative;
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 1rem;
+  margin: 1rem;
+}
+
+.source {
+  display: flex;
+  padding: 1rem;
+  margin: 1rem;
+  height: 5rem;
+  border-radius: 0.5rem;
+  box-shadow: $inset-shadow-1;
+
+  .dragme {
+    flex: 1;
+    
+    &:not(:first-child){
+      margin-left: 1rem;
+    }
+  }  
+  
+  @include respond-to('medium'){
+    height: initial;
+    font-size: 1.5rem;
+
+    .dragme {   
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+  }
+}
+
+.dragme {
+}
+.dragme {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: $shadow-border;
+  cursor: grab;
+  user-select: none;
+  
+  &:not(.ui-draggable-dragging) {  
+    transition: box-shadow 0.15s ease-in-out;
+  }
+  
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.score {
+  display: flex;
+  margin: 0.5rem 1rem 0;
+  justify-content: flex-end;
+  align-items: center;
+  height: 3rem;
+  font-size: 1.5em;
+  &:after {
+    padding-left: 0.5rem;
+    content: "pts";
+  }
+}
+
+//// dragging styles
+
+
+.ui-draggable-dragging {
+  z-index: 999;
+  // width: 10rem !important;
+  opacity: 0.75;
+  box-shadow: $shadow-3;
+  cursor: grabbing;
+}
+
+.droppable{
+  position: relative;
+  @include animate;
+  display: flex;
+  box-shadow: $inset-shadow-border;
+  border-radius: 0.25rem;
+  
+  .dragme {
+    margin: 1rem;
+    flex-grow: 1;  
+    box-shadow: $shadow-border; 
+  }
+}
+
+.droppable-highlight {
+  background: $highlight-color;
+  box-shadow: $inset-shadow-2;
+  border: 1px solid $asbestos;
+  
+  .dragme {
+    box-shadow: $shadow-2;
+    
+    &:not(.ui-draggable-dragging){
+      animation: mergeShake 5s infinite;
+    }
+  }
+  
+  &.drag-within {
+    background-color: $highlight-dark;
+  }
+}
+
+li.ui-draggable-dragging {
+  list-style: none;
+}
+
+.icon {
+  display: inline-flex;
+  
+  line-height: 1;
+  text-rendering: auto;
+  box-sizing: border-box;
+  text-align: center;
+  svg {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/*
+ 
+                                  .o88o.               .       .    o8o  
+                                  888 `"             .o8     .o8    `"'  
+  .ooooo.   .ooooo.  ooo. .oo.   o888oo   .ooooo.  .o888oo .o888oo oooo  
+ d88' `"Y8 d88' `88b `888P"Y88b   888    d88' `88b   888     888   `888  
+ 888       888   888  888   888   888    888ooo888   888     888    888  
+ 888   .o8 888   888  888   888   888    888    .o   888 .   888 .  888  
+ `Y8bod8P' `Y8bod8P' o888o o888o o888o   `Y8bod8P'   "888"   "888" o888o 
+                                                                         
+                                                                         
+                                                                         
+ 
+*/
+
 // https://codepen.io/mikehobizal/pen/gOdmmr?editors=1100
 
 @keyframes bang {
@@ -302,6 +368,7 @@ body,html, .body_wrap {
     opacity: 1;
   }
 }
+
 .confetti-drop {
   position: relative;
   i {
@@ -315,10 +382,6 @@ body,html, .body_wrap {
     height: 5px;
     background: red;
     opacity: 0;
-    
-    // &.more {
-    //   margin-bottom: 1rem;
-    // }
     
     @for $i from 1 to 10 {
       &.more-#{$i} {
@@ -341,7 +404,21 @@ body,html, .body_wrap {
   }
 }
 
-// settings
+/*
+ 
+                        .       .    o8o                                  
+                      .o8     .o8    `"'                                  
+  .oooo.o  .ooooo.  .o888oo .o888oo oooo  ooo. .oo.    .oooooooo  .oooo.o 
+ d88(  "8 d88' `88b   888     888   `888  `888P"Y88b  888' `88b  d88(  "8 
+ `"Y88b.  888ooo888   888     888    888   888   888  888   888  `"Y88b.  
+ o.  )88b 888    .o   888 .   888 .  888   888   888  `88bod8P'  o.  )88b 
+ 8""888P' `Y8bod8P'   "888"   "888" o888o o888o o888o `8oooooo.  8""888P' 
+                                                      d"     YD           
+                                                      "Y88888P'           
+                                                                          
+ 
+*/
+
 .settings_hide {
   display: none;
 }
@@ -439,14 +516,12 @@ body,html, .body_wrap {
     }
   }
 
-
   label {
     cursor: pointer;
     padding: 1rem;
     display: flex;
   }
 }
-
 
 
 #settings_btn:checked {
@@ -482,6 +557,11 @@ body,html, .body_wrap {
   
 }
 
+
+
+
+// dark mode
+
 input#settings_darkmode:checked ~ .body_wrap .settings_wrap label[for="settings_darkmode"] .toggle {
   background: $nephritis;
   &:after {
@@ -490,38 +570,6 @@ input#settings_darkmode:checked ~ .body_wrap .settings_wrap label[for="settings_
 
   }
 }
-input#settings_hints:checked ~ .body_wrap .settings_wrap label[for="settings_hints"] .toggle {
-  background: $nephritis;
-  &:after {
-    background: $clouds;
-    left: 1.75rem;
-
-  }
-}
-
-// end settings
-
-li.ui-draggable-dragging {
-  list-style: none;
-}
-
-
-.icon {
-  display: inline-flex;
-  
-  line-height: 1;
-  text-rendering: auto;
-  box-sizing: border-box;
-  text-align: center;
-  svg {
-      height: 100%;
-      width: 100%;
-      box-sizing: border-box;
-  }
-}
-
-///////
-// dark mode
 
 input#settings_darkmode:checked {
   & ~ * {
@@ -558,6 +606,16 @@ input#settings_darkmode:checked {
 
 // hide hints
 
+
+input#settings_hints:checked ~ .body_wrap .settings_wrap label[for="settings_hints"] .toggle {
+  background: $nephritis;
+  &:after {
+    background: $clouds;
+    left: 1.75rem;
+
+  }
+}
+
 input#settings_hints:checked {
   & ~ .body_wrap .game {
     .droppable {
@@ -578,6 +636,10 @@ input#settings_hints:checked {
   }
 }
 
+// darkmode hints
+
+// @todo this can be removed if each drop area gets a wrap, and that gets the background color, 
+// while the dropzone gets the highlighted area
 input#settings_darkmode:checked ~ input#settings_hints:checked {
   & ~ .body_wrap .game {
     .droppable-highlight {
@@ -591,3 +653,29 @@ input#settings_darkmode:checked ~ input#settings_hints:checked {
     }
   }
 }
+
+
+
+
+///////////////////////////
+// unecessary
+///////////////////////////
+
+// .button {
+//   align-self: center;
+//   border: 2px solid $midnight;
+//   border-bottom-width: 12px;
+//   margin: 0 1rem;
+//   font-size: 1.5em;
+//   padding: 0.5rem;
+
+//   cursor: pointer;
+//   transition: ease-in-out 0.1s all;
+  
+//   &:active {
+//     border-bottom-width: 4px;
+//     // margin-bottom: 2px;
+//     margin-top: 8px;
+//   }
+
+// }
