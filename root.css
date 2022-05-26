@@ -294,6 +294,35 @@ input#settings_darkmode:checked ~ input#settings_hints:checked ~ .body_wrap .gam
   background: #34495e;
 }
 
+@-webkit-keyframes bob {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-0.25rem);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(0.25rem);
+  }
+}
+
+@keyframes bob {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-0.25rem);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(0.25rem);
+  }
+}
 .game {
   display: flex;
   align-items: center;
@@ -360,4 +389,16 @@ input#settings_darkmode:checked ~ input#settings_hints:checked ~ .body_wrap .gam
   background: #e67e22;
   border-radius: 0.5rem;
   margin: 2rem;
+  position: relative;
+  transition: all 0.15s ease-in-out;
+  top: 0;
+}
+.list a:hover {
+  top: -0.5rem;
+}
+@media (min-width: 1px) and (max-width: 600px) {
+  .list a {
+    -webkit-animation: bob 4s linear infinite;
+            animation: bob 4s linear infinite;
+  }
 }/*# sourceMappingURL=root.css.map */
