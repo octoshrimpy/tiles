@@ -1,0 +1,56 @@
+@import "./styles/lib";
+
+.game {
+  display: flex;
+  align-items: center;
+}
+.name {
+  flex-grow: 2;
+  font-size: 8rem;
+  padding-top: 4rem;
+
+  span {
+    margin: 0.5rem;
+    padding: 0.5rem;
+  }
+  @for $counter from 1 through 5 {
+    $Hcolor: $counter * 27;
+    span:nth-child(#{$counter}) {
+      background: transparentize(hsl($Hcolor, 90%, 60%), 0.33) !important;
+      color: hsl($Hcolor, 90%, 18%) !important;
+      // font-size: 1.5em;
+      border-radius: 0.5rem;
+
+    }
+  }
+
+  @include respond-to('small') {
+    font-size: 15vw;
+  }
+}
+
+.gamemodes {
+  flex-grow: 1;
+  font-size: 2em;
+
+  .label {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+  
+  a {
+    text-decoration: none;
+    color: $midnight;
+    font-weight: bold;
+    padding: 1rem;
+    background: $carrot;
+    border-radius: 0.5rem;
+    margin: 2rem;
+
+  }
+}

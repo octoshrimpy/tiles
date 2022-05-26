@@ -1,0 +1,363 @@
+/*
+
+              .               oooo   o8o   .o8       
+            .o8               `888   `"'  "888       
+  .oooo.o .o888oo oooo    ooo  888  oooo   888oooo.  
+ d88(  "8   888    `88.  .8'   888  `888   d88' `88b 
+ `"Y88b.    888     `88..8'    888   888   888   888 
+ o.  )88b   888 .    `888'     888   888   888   888 
+ 8""888P'   "888"     .8'     o888o o888o  `Y8bod8P' 
+                  .o..P'                             
+                  `Y8P'                              
+
+
+*/
+.is-clouds {
+  background: #ecf0f1;
+}
+
+.is-silver {
+  background: #bdc3c7;
+}
+
+.is-text-midnight {
+  color: #2c3e50;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.body_wrap {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  align-items: center;
+}
+
+.game {
+  height: 100%;
+  width: 100%;
+  max-width: 30rem;
+  padding: 6rem 1rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.15s ease-in-out;
+  left: 0;
+  position: relative;
+}
+@media (min-width: 1px) and (max-width: 600px) {
+  .game {
+    padding: 2rem 1rem;
+  }
+  .game > * {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+@media (min-width: 601px) and (max-width: 999px) {
+  .game {
+    padding: 2rem 1rem;
+    font-size: 1.5em;
+  }
+  .game > * {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+@media (min-width: 1200px) and (max-width: 9999px) {
+  .game {
+    font-size: 1.5em;
+  }
+}
+
+/*
+
+                        .       .    o8o                                  
+                      .o8     .o8    `"'                                  
+  .oooo.o  .ooooo.  .o888oo .o888oo oooo  ooo. .oo.    .oooooooo  .oooo.o 
+ d88(  "8 d88' `88b   888     888   `888  `888P"Y88b  888' `88b  d88(  "8 
+ `"Y88b.  888ooo888   888     888    888   888   888  888   888  `"Y88b.  
+ o.  )88b 888    .o   888 .   888 .  888   888   888  `88bod8P'  o.  )88b 
+ 8""888P' `Y8bod8P'   "888"   "888" o888o o888o o888o `8oooooo.  8""888P' 
+                                                      d"     YD           
+                                                      "Y88888P'           
+
+
+*/
+.settings_hide {
+  display: none;
+}
+
+.settings_wrap {
+  position: absolute;
+  height: 100%;
+  width: 75%;
+  right: 100%;
+  display: flex;
+  transition: all 0.15s ease-in-out;
+  z-index: 90;
+}
+@media (min-width: 601px) and (max-width: 9999px) {
+  .settings_wrap {
+    width: 25%;
+  }
+}
+.settings_wrap .settings_btn {
+  box-sizing: content-box;
+  position: absolute;
+  right: -4rem;
+  transition: all 0.15s ease-in-out;
+  height: 2rem;
+  width: 2rem;
+  overflow: visible;
+}
+.settings_wrap .settings_btn:after {
+  position: absolute;
+  height: 100vh;
+  top: 0;
+  left: 100%;
+  width: 100vw;
+  content: "";
+  background: rgba(0, 0, 0, 0.5);
+  transition: all 0.15s ease-in-out;
+  opacity: 0;
+  pointer-events: none;
+}
+.settings_wrap .settings_btn .icon {
+  height: 2rem;
+  width: 2rem;
+  position: absolute;
+  transition: all 0.15s ease-in-out;
+}
+.settings_wrap .settings_btn .gear {
+  opacity: 1;
+}
+.settings_wrap .settings_btn .close {
+  opacity: 0;
+}
+.settings_wrap .settings_content {
+  padding: 1rem;
+  padding-top: 5rem;
+  width: 100%;
+}
+.settings_wrap .settings_content label {
+  width: 100%;
+  display: flex;
+  padding: 0.5rem 2rem;
+  align-items: center;
+  font-size: 1.5rem;
+}
+@media (min-width: 601px) and (max-width: 9999px) {
+  .settings_wrap .settings_content label {
+    padding: 0.5rem;
+  }
+}
+.settings_wrap .settings_content label .label {
+  flex-grow: 1;
+}
+.settings_wrap .settings_content label .toggle {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 3.5rem;
+  height: 2rem;
+  background: #ecf0f1;
+  border-radius: 99999px;
+  transition: all 0.15s ease-in-out;
+  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+}
+.settings_wrap .settings_content label .toggle:after {
+  content: "";
+  position: absolute;
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 99999px;
+  background: #2c3e50;
+  left: 0.25rem;
+  transition: all 0.15s ease-in-out;
+}
+.settings_wrap label {
+  cursor: pointer;
+  padding: 1rem;
+  display: flex;
+}
+
+#settings_btn:checked ~ .body_wrap .settings_wrap {
+  right: 25%;
+}
+@media (min-width: 601px) and (max-width: 9999px) {
+  #settings_btn:checked ~ .body_wrap .settings_wrap {
+    right: 75%;
+  }
+}
+#settings_btn:checked ~ .body_wrap .settings_wrap .settings_btn {
+  right: 0;
+}
+#settings_btn:checked ~ .body_wrap .settings_wrap .settings_btn:after {
+  pointer-events: all;
+  opacity: 1;
+}
+#settings_btn:checked ~ .body_wrap .settings_wrap .settings_btn .gear {
+  opacity: 0;
+}
+#settings_btn:checked ~ .body_wrap .settings_wrap .settings_btn .close {
+  opacity: 1;
+}
+#settings_btn:checked ~ .body_wrap .game {
+  left: 75%;
+}
+@media (min-width: 601px) and (max-width: 9999px) {
+  #settings_btn:checked ~ .body_wrap .game {
+    left: 25%;
+  }
+}
+
+input#settings_darkmode:checked ~ .body_wrap .settings_wrap label[for=settings_darkmode] .toggle {
+  background: #27ae60;
+}
+input#settings_darkmode:checked ~ .body_wrap .settings_wrap label[for=settings_darkmode] .toggle:after {
+  background: #ecf0f1;
+  left: 1.75rem;
+}
+
+input#settings_darkmode:checked ~ * {
+  color: #bdc3c7;
+}
+input#settings_darkmode:checked ~ * .icon svg path {
+  fill: silver !important;
+}
+input#settings_darkmode:checked ~ .body_wrap {
+  background: #2c3e50;
+}
+input#settings_darkmode:checked ~ .body_wrap .settings_wrap, input#settings_darkmode:checked ~ .body_wrap .game {
+  background: #2c3e50;
+}
+input#settings_darkmode:checked ~ .body_wrap .game .is-clouds {
+  background: #34495e;
+}
+input#settings_darkmode:checked ~ .body_wrap .game .is-silver {
+  background: #2c3e50;
+}
+input#settings_darkmode:checked ~ .body_wrap .game .droppable-highlight {
+  background: rgba(22, 160, 133, 0.5);
+}
+input#settings_darkmode:checked ~ .body_wrap .game .droppable-highlight.drag-within {
+  background: #1abc9c;
+}
+
+input#settings_hints:checked ~ .body_wrap .settings_wrap label[for=settings_hints] .toggle {
+  background: #27ae60;
+}
+input#settings_hints:checked ~ .body_wrap .settings_wrap label[for=settings_hints] .toggle:after {
+  background: #ecf0f1;
+  left: 1.75rem;
+}
+
+input#settings_hints:checked ~ .body_wrap .game .droppable {
+  border: none;
+  box-shadow: none;
+}
+input#settings_hints:checked ~ .body_wrap .game .ui-droppable-active .dragme {
+  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+  -webkit-animation: none !important;
+          animation: none !important;
+}
+input#settings_hints:checked ~ .body_wrap .game .droppable-highlight {
+  background: #ecf0f1;
+}
+input#settings_hints:checked ~ .body_wrap .game .droppable-highlight.drop-within {
+  background: #ecf0f1;
+}
+
+input#settings_darkmode:checked ~ input#settings_hints:checked ~ .body_wrap .game .droppable-highlight {
+  background: #34495e;
+  border: inherit;
+  box-shadow: inherit;
+}
+input#settings_darkmode:checked ~ input#settings_hints:checked ~ .body_wrap .game .droppable-highlight.drop-within {
+  background: #34495e;
+}
+
+.game {
+  display: flex;
+  align-items: center;
+}
+
+.name {
+  flex-grow: 2;
+  font-size: 8rem;
+  padding-top: 4rem;
+}
+.name span {
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
+.name span:nth-child(1) {
+  background: rgba(245, 144, 61, 0.67) !important;
+  color: hsl(27deg, 90%, 18%) !important;
+  border-radius: 0.5rem;
+}
+.name span:nth-child(2) {
+  background: rgba(245, 226, 61, 0.67) !important;
+  color: hsl(54deg, 90%, 18%) !important;
+  border-radius: 0.5rem;
+}
+.name span:nth-child(3) {
+  background: rgba(181, 245, 61, 0.67) !important;
+  color: hsl(81deg, 90%, 18%) !important;
+  border-radius: 0.5rem;
+}
+.name span:nth-child(4) {
+  background: rgba(98, 245, 61, 0.67) !important;
+  color: hsl(108deg, 90%, 18%) !important;
+  border-radius: 0.5rem;
+}
+.name span:nth-child(5) {
+  background: rgba(61, 245, 107, 0.67) !important;
+  color: hsl(135deg, 90%, 18%) !important;
+  border-radius: 0.5rem;
+}
+@media (min-width: 1px) and (max-width: 600px) {
+  .name {
+    font-size: 15vw;
+  }
+}
+
+.gamemodes {
+  flex-grow: 1;
+  font-size: 2em;
+}
+.gamemodes .label {
+  display: flex;
+  justify-content: center;
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+}
+.list a {
+  text-decoration: none;
+  color: #2c3e50;
+  font-weight: bold;
+  padding: 1rem;
+  background: #e67e22;
+  border-radius: 0.5rem;
+  margin: 2rem;
+}/*# sourceMappingURL=root.css.map */

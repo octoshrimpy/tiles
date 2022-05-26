@@ -1,0 +1,293 @@
+@import './../styles/lib';
+
+/*
+ 
+                                                                              
+                                                                              
+  .oooo.   oo.ooooo.  oo.ooooo.       oooo    ooo  .oooo.   oooo d8b  .oooo.o 
+ `P  )88b   888' `88b  888' `88b       `88.  .8'  `P  )88b  `888""8P d88(  "8 
+  .oP"888   888   888  888   888        `88..8'    .oP"888   888     `"Y88b.  
+ d8(  888   888   888  888   888         `888'    d8(  888   888     o.  )88b 
+ `Y888""8o  888bod8P'  888bod8P'          `8'     `Y888""8o d888b    8""888P' 
+            888        888                                                    
+           o888o      o888o                                                   
+                                                                              
+ 
+*/
+
+//// colors
+$highlight-color: #caeed9;
+$highlight-dark : darken($highlight-color, 15%);
+$highlight-hover: #a3e1be;
+
+
+
+@keyframes mergeShake {
+  0% {
+    transform: rotate(0deg);
+  }
+  94%{
+    transform: rotate(0deg);
+  }
+  96% {
+    transform: rotate(-7deg);
+  }
+  98%{
+    transform: rotate(7deg);
+  }
+  100%{
+    transform: rotate(0deg);
+  }
+}
+
+
+/*
+ 
+  .o88o.                                       .    o8o                                 
+  888 `"                                     .o8    `"'                                 
+ o888oo  oooo  oooo  ooo. .oo.    .ooooo.  .o888oo oooo   .ooooo.  ooo. .oo.    .oooo.o 
+  888    `888  `888  `888P"Y88b  d88' `"Y8   888   `888  d88' `88b `888P"Y88b  d88(  "8 
+  888     888   888   888   888  888         888    888  888   888  888   888  `"Y88b.  
+  888     888   888   888   888  888   .o8   888 .  888  888   888  888   888  o.  )88b 
+ o888o    `V88V"V8P' o888o o888o `Y8bod8P'   "888" o888o `Y8bod8P' o888o o888o 8""888P' 
+                                                                                        
+                                                                                        
+                                                                                        
+ 
+*/
+
+@function pow($number, $exponent) {
+  $value: 1;
+
+  @if $exponent > 0 {
+    @for $i from 1 through $exponent {
+      $value: $value * $number;
+    }
+  }
+
+  @return $value;
+}
+// returns 1, 2, 4, 8, 16, 32, etc
+@for $counter from 1 through 100 { 
+  $powNum: pow(2, $counter);
+  $Hcolor: $counter * 27;
+  .dragme[data-val="#{$powNum}"] {
+    background: transparentize(hsl($Hcolor, 90%, 60%), 0.33) !important;
+    color: hsl($Hcolor, 90%, 18%) !important;
+    font-size: 1.5em;
+  }  
+}
+
+/*
+ 
+                                                  
+                                                  
+  .oooooooo  .oooo.   ooo. .oo.  .oo.    .ooooo.  
+ 888' `88b  `P  )88b  `888P"Y88bP"Y88b  d88' `88b 
+ 888   888   .oP"888   888   888   888  888ooo888 
+ `88bod8P'  d8(  888   888   888   888  888    .o 
+ `8oooooo.  `Y888""8o o888o o888o o888o `Y8bod8P' 
+ d"     YD                                        
+ "Y88888P'                                        
+                                                  
+ 
+*/
+
+
+.board {
+  position: relative;
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 1rem;
+  margin: 1rem;
+
+  @include respond-to('medium') {
+    grid-gap: 0.5rem;
+  }
+  @include respond-to('small') {
+    grid-gap: 0.25rem;
+  }
+}
+
+.source {
+  display: flex;
+  padding: 1rem;
+  margin: 1rem;
+  height: 5rem;
+  border-radius: 0.5rem;
+  box-shadow: $inset-shadow-1;
+
+  .dragme {
+    flex: 1;
+    
+    &:not(:first-child){
+      margin-left: 1rem;
+    }
+  }  
+  
+  @include respond-to('medium'){
+    height: initial;
+    font-size: 1.5rem;
+
+    .dragme {   
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+  }
+}
+
+.dragme {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: $shadow-border;
+  cursor: grab;
+  user-select: none;
+  
+  &:not(.ui-draggable-dragging) {  
+    transition: box-shadow 0.15s ease-in-out;
+  }
+  
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.score {
+  display: flex;
+  margin: 0.5rem 1rem 0;
+  justify-content: flex-end;
+  align-items: center;
+  height: 3rem;
+  font-size: 1.5em;
+  &:after {
+    padding-left: 0.5rem;
+    content: "pts";
+  }
+}
+
+//// dragging styles
+
+
+.ui-draggable-dragging {
+  z-index: 999;
+  // width: 10rem !important;
+  opacity: 0.75;
+  box-shadow: $shadow-3;
+  cursor: grabbing;
+}
+
+.droppable{
+  position: relative;
+  @include animate;
+  display: flex;
+  box-shadow: $inset-shadow-border;
+  border-radius: 0.25rem;
+  
+  .dragme {
+    margin: 1rem;
+    flex-grow: 1;  
+    box-shadow: $shadow-border; 
+  }
+}
+
+.droppable-highlight {
+  background: $highlight-color;
+  box-shadow: $inset-shadow-2;
+  border: 1px solid $asbestos;
+  
+  .dragme {
+    box-shadow: $shadow-2;
+    
+    &:not(.ui-draggable-dragging){
+      animation: mergeShake 5s infinite;
+    }
+  }
+  
+  &.drag-within {
+    background-color: $highlight-dark;
+  }
+}
+
+li.ui-draggable-dragging {
+  list-style: none;
+}
+
+.icon {
+  display: inline-flex;
+  
+  line-height: 1;
+  text-rendering: auto;
+  box-sizing: border-box;
+  text-align: center;
+  svg {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/*
+ 
+                                  .o88o.               .       .    o8o  
+                                  888 `"             .o8     .o8    `"'  
+  .ooooo.   .ooooo.  ooo. .oo.   o888oo   .ooooo.  .o888oo .o888oo oooo  
+ d88' `"Y8 d88' `88b `888P"Y88b   888    d88' `88b   888     888   `888  
+ 888       888   888  888   888   888    888ooo888   888     888    888  
+ 888   .o8 888   888  888   888   888    888    .o   888 .   888 .  888  
+ `Y8bod8P' `Y8bod8P' o888o o888o o888o   `Y8bod8P'   "888"   "888" o888o 
+                                                                         
+                                                                         
+                                                                         
+ 
+*/
+
+// https://codepen.io/mikehobizal/pen/gOdmmr?editors=1100
+
+@keyframes bang {
+  from {
+    transform: translate3d(0,0,0);
+    opacity: 1;
+  }
+}
+
+.confetti-drop {
+  position: relative;
+  i {
+    visibility: visible;
+    z-index: 999;
+    position: absolute;
+    display: block;
+    left: 50%;
+    bottom: 0;
+    width: 3px;
+    height: 5px;
+    background: red;
+    opacity: 0;
+    
+    @for $i from 1 to 10 {
+      &.more-#{$i} {
+        margin-bottom: clamp(0%, $i * 15%, 100%);
+      }
+    }
+  }
+  
+  @for $i from 1 through 50 {
+    i[fetti-#{$i}]{
+      transform: translate3d(random(190) - 100 + px,random(50) - 100 + px,0) rotate(random(360) + deg);
+      background: hsla(random(360),100%,50%,1);
+      animation: bang 700ms ease-out forwards;
+      opacity: 0;
+    }
+    
+    i.more-#{$i}{
+      animation-delay: $i * 100ms !important;
+    }
+  }
+}
