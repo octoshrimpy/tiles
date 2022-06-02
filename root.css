@@ -248,16 +248,16 @@ input#settings_darkmode:checked ~ .body_wrap {
 input#settings_darkmode:checked ~ .body_wrap .settings_wrap, input#settings_darkmode:checked ~ .body_wrap .game {
   background: #2c3e50;
 }
-input#settings_darkmode:checked ~ .body_wrap .game .is-clouds {
+input#settings_darkmode:checked ~ .body_wrap .is-clouds {
   background: #34495e;
 }
-input#settings_darkmode:checked ~ .body_wrap .game .is-silver {
+input#settings_darkmode:checked ~ .body_wrap .is-silver {
   background: #2c3e50;
 }
-input#settings_darkmode:checked ~ .body_wrap .game .droppable-highlight {
+input#settings_darkmode:checked ~ .body_wrap .droppable-highlight {
   background: rgba(22, 160, 133, 0.5);
 }
-input#settings_darkmode:checked ~ .body_wrap .game .droppable-highlight.drag-within {
+input#settings_darkmode:checked ~ .body_wrap .droppable-highlight.drag-within {
   background: #1abc9c;
 }
 
@@ -292,6 +292,28 @@ input#settings_darkmode:checked ~ input#settings_hints:checked ~ .body_wrap .gam
 }
 input#settings_darkmode:checked ~ input#settings_hints:checked ~ .body_wrap .game .droppable-highlight.drop-within {
   background: #34495e;
+}
+
+.button {
+  text-decoration: none;
+  color: #2c3e50;
+  font-weight: bold;
+  padding: 1rem;
+  background: #e67e22;
+  border-radius: 0.5rem;
+  margin: 2rem;
+  position: relative;
+  transition: all 0.15s ease-in-out;
+  top: 0;
+}
+.button:hover {
+  top: -0.25rem;
+}
+@media (min-width: 1px) and (max-width: 600px) {
+  .button {
+    -webkit-animation: bob 4s linear infinite;
+            animation: bob 4s linear infinite;
+  }
 }
 
 @-webkit-keyframes bob {
@@ -380,25 +402,4 @@ input#settings_darkmode:checked ~ input#settings_hints:checked ~ .body_wrap .gam
 .list {
   display: flex;
   justify-content: center;
-}
-.list a {
-  text-decoration: none;
-  color: #2c3e50;
-  font-weight: bold;
-  padding: 1rem;
-  background: #e67e22;
-  border-radius: 0.5rem;
-  margin: 2rem;
-  position: relative;
-  transition: all 0.15s ease-in-out;
-  top: 0;
-}
-.list a:hover {
-  top: -0.5rem;
-}
-@media (min-width: 1px) and (max-width: 600px) {
-  .list a {
-    -webkit-animation: bob 4s linear infinite;
-            animation: bob 4s linear infinite;
-  }
 }/*# sourceMappingURL=root.css.map */

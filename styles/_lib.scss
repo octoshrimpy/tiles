@@ -311,7 +311,7 @@ input#settings_darkmode:checked {
     }
   }
 
-  & ~ .body_wrap .game {
+  & ~ .body_wrap {
     .is-clouds {
       background: $asphalt;
     }
@@ -376,5 +376,29 @@ input#settings_darkmode:checked ~ input#settings_hints:checked {
         background: $asphalt;
       }
     }
+  }
+}
+
+
+
+
+.button {
+  text-decoration: none;
+  color: $midnight;
+  font-weight: bold;
+  padding: 1rem;
+  background: $carrot;
+  border-radius: 0.5rem;
+  margin: 2rem;
+  position: relative;
+  @include animate;
+  top: 0;
+
+  &:hover {
+    top: -0.25rem;
+  }
+
+  @include respond-to(small) {
+    animation: bob 4s linear infinite;
   }
 }

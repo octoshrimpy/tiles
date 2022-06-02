@@ -291,3 +291,80 @@ li.ui-draggable-dragging {
     }
   }
 }
+
+
+/*
+ 
+                                                                                           
+                                                                                           
+  .oooooooo  .oooo.   ooo. .oo.  .oo.    .ooooo.   .ooooo.  oooo    ooo  .ooooo.  oooo d8b 
+ 888' `88b  `P  )88b  `888P"Y88bP"Y88b  d88' `88b d88' `88b  `88.  .8'  d88' `88b `888""8P 
+ 888   888   .oP"888   888   888   888  888ooo888 888   888   `88..8'   888ooo888  888     
+ `88bod8P'  d8(  888   888   888   888  888    .o 888   888    `888'    888    .o  888     
+ `8oooooo.  `Y888""8o o888o o888o o888o `Y8bod8P' `Y8bod8P'     `8'     `Y8bod8P' d888b    
+ d"     YD                                                                                 
+ "Y88888P'                                                                                 
+                                                                                           
+ 
+*/
+
+.gameover_screen {
+  position: absolute;
+  z-index: 999;
+  background: rgba(0,0,0,0.5);
+
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  display: none;
+
+  &.show {
+    display: flex;
+  }
+
+  .final_score {
+    padding: 2rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: inherit;
+
+    .points {
+      &:after {
+        content: 'pts';
+        display: inline;
+      }
+    }
+  }
+
+  .restart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.restart_wrap {
+  @include animate;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  
+  align-items: center;
+  justify-content: center;
+  top: 6rem;
+  position: relative;
+  
+  &.show {
+    margin: 2rem;
+    top: 0rem;
+  }
+}

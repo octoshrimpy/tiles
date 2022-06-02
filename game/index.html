@@ -19,8 +19,21 @@
     <input type="checkbox" name="settings_btn" id="settings_btn" class="settings_hide" />
     <input type="checkbox" checked name="settings_darkmode" id="settings_darkmode" class="settings_hide" />
     <input type="checkbox" name="settings_hints" id="settings_hints" class="settings_hide">
+    <!-- end settings toggles -->
     <div class="body_wrap is-silver">
-      <!-- end settings toggles -->
+      
+      <div class="gameover_screen">
+        <div class="gameover_content is-silver">
+          <div class="final_score">
+            <div class="points"></div>
+          </div>
+          <div class="restart">
+            <a href="../game" class="button">
+              <span>restart</span></a>
+          </div>
+        </div>
+      </div>
+
       <div class="settings_wrap is-silver">
         <label for="settings_btn" class="settings_btn">
           <div class="icon gear">
@@ -71,6 +84,17 @@
           <div class="draggable droppable is-clouds"></div>
         </div>
         <div class="draggable source is-clouds"></div>
+
+        <div class="restart_wrap">
+          <div class="final_score">
+            <div class="points"></div>
+          </div>
+          <div class="restart">
+            <a href="../game" class="button">
+              <span>restart</span></a>
+          </div>
+        </div>
+
       </div>
       <!-- <button class="button" onclick="addMore()" id="add-more"> add more</button> -->
     </div>

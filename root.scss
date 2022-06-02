@@ -57,25 +57,5 @@
 .list {
   display: flex;
   justify-content: center;
-  
-  a {
-    text-decoration: none;
-    color: $midnight;
-    font-weight: bold;
-    padding: 1rem;
-    background: $carrot;
-    border-radius: 0.5rem;
-    margin: 2rem;
-    position: relative;
-    @include animate;
-    top: 0;
-
-    &:hover {
-      top: -0.5rem;
-    }
-
-    @include respond-to(small) {
-      animation: bob 4s linear infinite;
-    }
-  }
 }
+

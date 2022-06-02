@@ -14,6 +14,7 @@ let droppable = '.droppable';
 let draggingSelector = '.dragme';
 let revertDuration = 300; // unused
 let highestTile = 0
+let checkMovesTimeout
 
 //jquery within this function
 function run(){
@@ -54,7 +55,6 @@ function createDroppable($droppableObj, acceptString, deactivateFunc = function(
           $(this).removeClass('droppable-highlight');
           $(this).removeClass('drag-within');
         });
-        checkMoves()
       },
       over: function(event, ui){
         $(this).addClass('drag-within');
@@ -112,7 +112,10 @@ function addToDroppable(event, ui){
   
   // add more tiles if pulled from source
   if($parent[0].classList.contains('source')) {
-    addMore()
+    addMore()  
+    // @todo this needs to not be a timeout
+    clearTimeout(checkMovesTimeout)
+    checkMovesTimeout = setTimeout(checkMoves, 5000)
   }
   
   // if pulling from board and placing on board without merging
@@ -130,9 +133,11 @@ function addToDroppable(event, ui){
 
 function updateScoreWith(val) {
   let scoreElm = document.querySelector('.score')
+  let finalScoreElm = document.querySelector('.final_score .points')
   let oldScore = Number(scoreElm.innerText.replaceAll(',',''))
   let newScore = oldScore + val
   scoreElm.innerText = Number(newScore).toLocaleString()
+  finalScoreElm.innerText = Number(newScore).toLocaleString()
 }
 
 function runConfetti($parent, val) {
@@ -259,7 +264,6 @@ function createDraggable(selector, parentObj){
 //// end jquery garbage
 
 function addMore(count = 1){
-  
   // add more tiles to source
   for(let iter = 0; iter < count; iter++) {
     let addTo = document.querySelector('.source')
@@ -274,6 +278,7 @@ function addMore(count = 1){
   }
   
   createDraggable( draggingSelector, $(draggable) )
+
 }
 
 function ranPowOfTwo(min=1, max=10) {
@@ -281,6 +286,7 @@ function ranPowOfTwo(min=1, max=10) {
 }
 
 function checkMoves(){
+  console.log('checking moves')
   
   let workingMoves = 0
   let source = document.querySelector('.source')
@@ -313,10 +319,38 @@ function checkMoves(){
     // console.log('total moves:', workingMoves)
 
     if (workingMoves == 0){
-    //@think redo end score alert
-      //alert("game over!")
+    //@done redo end score alert
+      // alert("game over!")
+      gameEnded()
       return
     }
     
   }
+}
+
+function gameEnded(){
+  // @done add proper animations here
+  let restart = document.querySelector('.restart_wrap')
+  restart.classList.add('show')
+}
+
+
+function waitForElm(selector) {
+    return new Promise(resolve => {
+        if (document.querySelector(selector)) {
+            return resolve(document.querySelector(selector));
+        }
+
+        const observer = new MutationObserver(mutations => {
+            if (document.querySelector(selector)) {
+                resolve(document.querySelector(selector));
+                observer.disconnect();
+            }
+        });
+
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+    });
 }
