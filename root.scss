@@ -23,6 +23,7 @@
   flex-grow: 2;
   font-size: 8rem;
   padding-top: 4rem;
+  line-height: 10rem;
 
   span {
     margin: 0.5rem;
@@ -30,7 +31,7 @@
   }
   @for $counter from 1 through 5 {
     $Hcolor: $counter * 27;
-    span:nth-child(#{$counter}) {
+    span:nth-of-type(#{$counter}) {
       background: transparentize(hsl($Hcolor, 90%, 60%), 0.33) !important;
       color: hsl($Hcolor, 90%, 18%) !important;
       // font-size: 1.5em;
@@ -41,6 +42,7 @@
 
   @include respond-to('small') {
     font-size: 15vw;
+    line-height: 15vw;
   }
 }
 
