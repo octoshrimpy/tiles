@@ -21,19 +21,23 @@
 }
 .name {
   flex-grow: 2;
-  font-size: 8rem;
-  padding-top: 4rem;
-  line-height: 10rem;
-  align-items: center;
-  display: flex;
-
+  // padding-top: 4rem;
+  // align-items: center;
+  // display: block;
+  
   span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    height: 6rem;
+    width: 3rem;
     margin: 0.5rem;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
+    // margin-bottom: 1rem;
+    // line-height: 6rem;
   }
   @for $counter from 1 through 10 {
-    $Hcolor: $counter * 27;
+    $Hcolor: $counter * 42;
     span:nth-of-type(#{$counter}) {
       background: transparentize(hsl($Hcolor, 90%, 60%), 0.33) !important;
       color: hsl($Hcolor, 90%, 18%) !important;
@@ -44,8 +48,8 @@
   }
 
   @include respond-to('small') {
-    font-size: 15vw;
-    line-height: 15vw;
+    font-size: 3rem;
+    line-height: 3rem;
   }
 }
 
