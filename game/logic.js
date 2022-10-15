@@ -18,7 +18,7 @@ let checkMovesTimeout
 
 //jquery within this function
 function run(){
-   
+
   //add visiblity equivalent of hide()
   //visibility equivalent of hide()
   jQuery.fn.visible = function() {
@@ -281,6 +281,14 @@ function addMore(count = 1){
 
 }
 
+
+/**
+ * returns random number, power of two
+ *
+ * @param {number} [min=1] 
+ * @param {number} [max=10] 
+ * @return 
+ */
 function ranPowOfTwo(min=1, max=10) {
   return 2 ** Math.floor(Math.random()*(max - min + 1) + min);
 }

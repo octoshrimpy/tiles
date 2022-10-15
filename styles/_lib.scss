@@ -17,9 +17,23 @@
  
 */
 
-@mixin animate {
-  transition: all .15s ease-in-out;
-}
+
+
+
+/*
+ 
+                                         
+                                         
+ oooo    ooo  .oooo.   oooo d8b  .oooo.o 
+  `88.  .8'  `P  )88b  `888""8P d88(  "8 
+   `88..8'    .oP"888   888     `"Y88b.  
+    `888'    d8(  888   888     o.  )88b 
+     `8'     `Y888""8o d888b    8""888P' 
+                                         
+                                         
+                                         
+ 
+*/
 
 //basic colors
 $white: #fff;
@@ -66,12 +80,77 @@ $inset-shadow-5: inset 0 19px 38px rgba(0,0,0,0.30), inset 0 15px 12px rgba(0,0,
 $inset-shadow-border: inset 0 2px 3px rgba(10,10,10,.1), inset 0 0 0 1px rgba(10,10,10,.1);
 
 
+$main-darker  : #1c3abc;
+$maindark     : #026eee;
+$main-medium  : #0090ff;
+$main-light   : #53b2ff;
+$main-lighter : #b9ddff;
 
-.is-clouds { background: $clouds; }
-.is-silver { background: $silver; }
-.is-text-midnight { color: $midnight; }
+$compl-darker : #d74b02;
+$compl-dark   : #e16502;
+$compl-medium : #ee8402;
+$compl-light  : #f49f26;
+$compl-lighter: #f8c77e;
+
+$no-dark      : #8d3f3a;
+$no-medium    : #cb6463;
+$no-light     : #d69fa1;
+
+$yes-dark     : #205135;
+$yes-medium   : #3f9a74;
+$yes-light    : #8ecdb5;
+
+$bg_light  : $clouds;
+$bg_dark   : $silver;
+$text_color: $midnight;
+
+$highlight : transparentize($emerald, 0.5);
+$high-dark : darken($highlight, 0.25);
+$high-light: lighten($highlight, 0.25);
+
+
+/*
+ 
+                    o8o               o8o              
+                    `"'               `"'              
+ ooo. .oo.  .oo.   oooo  oooo    ooo oooo  ooo. .oo.   
+ `888P"Y88bP"Y88b  `888   `88b..8P'  `888  `888P"Y88b  
+  888   888   888   888     Y888'     888   888   888  
+  888   888   888   888   .o8"'88b    888   888   888  
+ o888o o888o o888o o888o o88'   888o o888o o888o o888o 
+*/
+
+@mixin animate {
+  transition: all 0.15s ease-in-out;
+}
+
+
+
+/*
+ 
+  .o8                                    
+ "888                                    
+  888oooo.   .oooo.    .oooo.o  .ooooo.  
+  d88' `88b `P  )88b  d88(  "8 d88' `88b 
+  888   888  .oP"888  `"Y88b.  888ooo888 
+  888   888 d8(  888  o.  )88b 888    .o 
+  `Y8bod8P' `Y888""8o 8""888P' `Y8bod8P' 
+*/
 
 * { box-sizing: border-box; }
+
+* {
+  --bg-light: $clouds;
+  --bg-dark: $silver;
+
+  --text-color: $midnight;
+
+
+  --highlight: $highlight;
+  --highlight-dark: $high-dark;
+  --highlight-light: $high-light;
+}
+
 body, html { 
   position: relative; 
   padding: 0;
@@ -81,8 +160,12 @@ body, html {
   overflow: hidden;
 }
 
+.is-light { background: var(--bg-light); }
+.is-dark { background: var(--bg-dark); }
+.is-text { color: var(--text-color); }
 
 .body_wrap {
+
   position: absolute;
   margin: 0;
   padding: 0;
@@ -93,7 +176,9 @@ body, html {
   flex-direction: column;
   font-family: sans-serif;
   align-items: center;  
+
 }
+
 
 
 .game {
@@ -147,26 +232,27 @@ body, html {
 .settings_hide {
   display: none;
 }
+
 .settings_wrap {
   position: absolute;
-  height: 100%;
-  width: 75%;
-  right: 100%;
-  display: flex;
+  height  : 100%;
+  width   : 75%;
+  right   : 100%;
+  display : flex;
+  z-index : 90;
   @include animate;
-  z-index: 90;
   @include respond-to('medium-up') {
     width: 25%;
   }
 
   .settings_btn {
     box-sizing: content-box;
-    position:absolute;
-    right: -4rem;
+    position  : absolute;
+    right     : -4rem;
+    height    : 2rem;
+    width     : 2rem;
+    overflow  : visible;
     @include animate;
-    height: 2rem;
-    width: 2rem;
-    overflow: visible;
     
     &:after {
       position: absolute;
@@ -222,7 +308,7 @@ body, html {
         position: relative;
         width: 3.5rem;
         height: 2rem;
-        background: $clouds;
+        background: $bg_light;
         border-radius: 99999px;
         @include animate;
         box-shadow: $shadow-border;
@@ -233,7 +319,7 @@ body, html {
           height: 1.5rem;
           width: 1.5rem;
           border-radius: 99999px;
-          background: $midnight;
+          background: $text_color;
           left: 0.25rem;
           @include animate;
         }
@@ -282,9 +368,6 @@ body, html {
   
 }
 
-
-
-
 // dark mode
 
 input#settings_darkmode:checked ~ .body_wrap .settings_wrap label[for="settings_darkmode"] .toggle {
@@ -329,6 +412,8 @@ input#settings_darkmode:checked {
 }
 
 
+
+
 // hide hints
 
 
@@ -352,10 +437,10 @@ input#settings_hints:checked {
       animation: none !important;
     }
     .droppable-highlight {
-      background: $clouds;
+      background: $bg_light;
       
       &.drop-within {
-        background: $clouds;
+        background: $bg_light;
       }
     }
   }
@@ -368,12 +453,12 @@ input#settings_hints:checked {
 input#settings_darkmode:checked ~ input#settings_hints:checked {
   & ~ .body_wrap .game {
     .droppable-highlight {
-      background: $asphalt;
+      background: $bg_light;
       border: inherit;
       box-shadow: inherit;
       
       &.drop-within {
-        background: $asphalt;
+        background: $bg_dark;
       }
     }
   }
@@ -384,7 +469,7 @@ input#settings_darkmode:checked ~ input#settings_hints:checked {
 
 .button {
   text-decoration: none;
-  color: $midnight;
+  color: $text_color;
   font-weight: bold;
   padding: 1rem;
   background: $carrot;

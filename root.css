@@ -12,20 +12,51 @@
 
 
 */
-.is-clouds {
-  background: #ecf0f1;
-}
+/*
 
-.is-silver {
-  background: #bdc3c7;
-}
 
-.is-text-midnight {
-  color: #2c3e50;
+
+ oooo    ooo  .oooo.   oooo d8b  .oooo.o 
+  `88.  .8'  `P  )88b  `888""8P d88(  "8 
+   `88..8'    .oP"888   888     `"Y88b.  
+    `888'    d8(  888   888     o.  )88b 
+     `8'     `Y888""8o d888b    8""888P' 
+
+
+
+
+*/
+/*
+
+                    o8o               o8o              
+                    `"'               `"'              
+ ooo. .oo.  .oo.   oooo  oooo    ooo oooo  ooo. .oo.   
+ `888P"Y88bP"Y88b  `888   `88b..8P'  `888  `888P"Y88b  
+  888   888   888   888     Y888'     888   888   888  
+  888   888   888   888   .o8"'88b    888   888   888  
+ o888o o888o o888o o888o o88'   888o o888o o888o o888o 
+*/
+/*
+
+  .o8                                    
+ "888                                    
+  888oooo.   .oooo.    .oooo.o  .ooooo.  
+  d88' `88b `P  )88b  d88(  "8 d88' `88b 
+  888   888  .oP"888  `"Y88b.  888ooo888 
+  888   888 d8(  888  o.  )88b 888    .o 
+  `Y8bod8P' `Y888""8o 8""888P' `Y8bod8P' 
+*/
+* {
+  box-sizing: border-box;
 }
 
 * {
-  box-sizing: border-box;
+  --bg-light: $clouds;
+  --bg-dark: $silver;
+  --text-color: $midnight;
+  --highlight: $highlight;
+  --highlight-dark: $high-dark;
+  --highlight-light: $high-light;
 }
 
 body, html {
@@ -35,6 +66,18 @@ body, html {
   height: 100%;
   width: 100%;
   overflow: hidden;
+}
+
+.is-light {
+  background: var(--bg-light);
+}
+
+.is-dark {
+  background: var(--bg-dark);
+}
+
+.is-text {
+  color: var(--text-color);
 }
 
 .body_wrap {
@@ -110,8 +153,8 @@ body, html {
   width: 75%;
   right: 100%;
   display: flex;
-  transition: all 0.15s ease-in-out;
   z-index: 90;
+  transition: all 0.15s ease-in-out;
 }
 @media (min-width: 601px) and (max-width: 9999px) {
   .settings_wrap {
@@ -122,10 +165,10 @@ body, html {
   box-sizing: content-box;
   position: absolute;
   right: -4rem;
-  transition: all 0.15s ease-in-out;
   height: 2rem;
   width: 2rem;
   overflow: visible;
+  transition: all 0.15s ease-in-out;
 }
 .settings_wrap .settings_btn:after {
   position: absolute;
@@ -286,12 +329,12 @@ input#settings_hints:checked ~ .body_wrap .game .droppable-highlight.drop-within
 }
 
 input#settings_darkmode:checked ~ input#settings_hints:checked ~ .body_wrap .game .droppable-highlight {
-  background: #34495e;
+  background: #ecf0f1;
   border: inherit;
   box-shadow: inherit;
 }
 input#settings_darkmode:checked ~ input#settings_hints:checked ~ .body_wrap .game .droppable-highlight.drop-within {
-  background: #34495e;
+  background: #bdc3c7;
 }
 
 .button {

@@ -124,69 +124,78 @@
       <!-- <button class="button" onclick="addMore()" id="add-more"> add more</button> -->
     </div>
 
-    <!-- begin draggabilly -->
-    <script src="https://unpkg.com/draggabilly@3/dist/draggabilly.pkgd.min.js"></script>
+    <!-- begin GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/Draggable.min.js"></script>
     <script>
-      // if you have multiple .draggable elements
-      // get all draggie elements
-      var draggableElems = document.querySelectorAll('.dragme');
-      // array of Draggabillies
-      var draggies = []
-      // init Draggabillies
-      for ( var i=0; i < draggableElems.length; i++ ) {
-        var draggableElem = draggableElems[i];
-        var draggie = new Draggabilly( draggableElem, {
-          // options...
-          containment: '.game'
-        });
-        draggie.on( 'dragEnd', draggieDropped)
-        draggies.push( draggie );
-      }
+      let draggie   = '.dragme'
+      let droppie   = '.droppable'
+      let available = '.droppable-highlight'
+      let within    = '.drag-within'
+      let bounds    = '.game'
+
+      gsap.registerPlugin(Draggable)
+
+      Draggable.create('.game .dragme', {
+        bounds: document.querySelector(bounds),
+        onDragStart: draggieStart,
+        onDrag: draggieMove,
+        onDragEnd: draggieDropped,
+      })
+
+      let droppies = document.querySelectorAll('.game .droppable')
 
       // every movement of draggie
       // check if over valid slot
-      function draggieMove(event, pointer) {}
+      function draggieMove(event) {
+        let droppableBelow = document
+          .elementsFromPoint(event.pageX, event.pageY)
+          .filter(elm => elm.classList.contains('droppable'))[0]
+        
+        let dragWithin = !!droppableBelow ? droppableBelow.classList.contains('.drag-within') : null
+        if (!droppableBelow || dragWithin == null) {
+          return
+        }
+        if (document.querySelector('.drop-within') && !dragWithin) {
+          droppies
+            .forEach(drop => drop.classList.remove('drag-within'))
+
+          droppableBelow.classList.add('drag-within')
+          console.log(droppableBelow)
+        }
+      }
 
       // when dragging starts
-      // check settings, setup droppables
-      function draggieStart(event, pointer) {}
+      // check settings, setup droppies
+      function draggieStart() {
+        let draggieElm = this.target
+        draggieElm.classList.add('draggie-dragging')
+        // for each droppable
+
+        droppies.forEach(drop => {
+          //@todo if settings, below
+          drop.classList.add('droppable-highlight')
+        })
+          // start css for dropping
+          // start listener for mouseover
+      }
 
       // when dragging ends
       // check if valid slot, or animate back
-      function draggieDropped(event, pointer) {
-        // if not over a viable dropzone
-          // if not over matching value
-          // if not over empty slot
-        // animate position to 0,0
-        moveBackToStart(event.target)
-
-        // if over viable dropzone
-          // destroy draggable
-
-          // if over matching value
-          // let newTile = getMatch(tile.val)
-          // add points
-
-          // if over empty tile
-          // let newTile = tileFromDraggie(draggie)
+      function draggieDropped() {
+        let draggie = this.target
+        draggie.classList.remove('draggie-dragging')
+        droppies.forEach(drop => {
+          // drop.classList.remove('droppable-highlight', 'drag-within')
+        })
+        moveBackToStart(draggie)
       }
 
 
       //================
 
       function moveBackToStart(draggie) {
-        let left = draggie.style.left
-        let top  = draggie.style.top
-
-        draggie
-        .animate(
-          { left: [left, 0], 
-            top: [top, 0] 
-          }, 
-          { duration: 200, iterations: 1, 
-            easing: "ease-out", fill:"forwards" 
-          }
-        )
+        gsap.to(draggie, {x: 0, y: 0, ease: "power4.out", duration: 0.5})
       }
 
     </script>

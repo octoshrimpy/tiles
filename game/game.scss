@@ -1,5 +1,13 @@
 @import './../styles/lib';
 
+
+
+
+  
+
+
+
+
 /*
  
                                                                               
@@ -15,12 +23,9 @@
  
 */
 
-//// colors
-$highlight-color: #caeed9;
-$highlight-dark : darken($highlight-color, 15%);
-$highlight-hover: #a3e1be;
-
-
+.droppable-highlight {
+  background:$high-light !important;
+}
 
 @keyframes mergeShake {
   0% {
@@ -150,11 +155,11 @@ $highlight-hover: #a3e1be;
   cursor: grab;
   user-select: none;
   
-  &:not(.ui-draggable-dragging) {  
+  &:not(.draggie-dragging) {  
     transition: box-shadow 0.15s ease-in-out;
   }
   
-  &:active {
+  &.draggie-dragging {
     cursor: grabbing;
   }
 }
@@ -175,19 +180,20 @@ $highlight-hover: #a3e1be;
 //// dragging styles
 
 
-.ui-draggable-dragging {
+.draggie-dragging {
   z-index: 999;
   // width: 10rem !important;
   opacity: 0.75;
-  box-shadow: $shadow-3;
+  // box-shadow: $shadow-3;
   cursor: grabbing;
+  // pointer-events: none;
 }
 
 .droppable{
   position: relative;
   @include animate;
   display: flex;
-  box-shadow: $inset-shadow-border;
+  // box-shadow: $inset-shadow-border;
   border-radius: 0.25rem;
   
   .dragme {
@@ -198,24 +204,25 @@ $highlight-hover: #a3e1be;
 }
 
 .droppable-highlight {
-  background: $highlight-color;
+
+  @debug $bg_light;
+  background: $high-light;
   box-shadow: $inset-shadow-2;
-  border: 1px solid $asbestos;
   
   .dragme {
     box-shadow: $shadow-2;
     
-    &:not(.ui-draggable-dragging){
+    &:not(.draggie-dragging){
       animation: mergeShake 5s infinite;
     }
   }
   
   &.drag-within {
-    background-color: $highlight-dark;
+    background-color: $high-dark;
   }
 }
 
-li.ui-draggable-dragging {
+li.draggie-dragging {
   list-style: none;
 }
 

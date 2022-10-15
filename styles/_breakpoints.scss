@@ -1,12 +1,13 @@
 $breakpoints: (
-  'small':  ('min': 1px, 'max': 600px),
-  'medium': ('min': 601px, 'max': 999px),
-  'large':  ('min': 1200px, 'max': 9999px),
-  'medium-up':  ('min': 601px, 'max': 9999px)
+  'small'       : ('min': 1px, 'max': 600px),
+  'medium'      : ('min': 601px, 'max': 999px),
+  'large'       : ('min': 1200px, 'max': 9999px),
+  'medium-up'   : ('min': 601px, 'max': 9999px),
+  'small-medium': ('min': 1px, 'max': 999px),
 ) !default;
 
 /// Mixin to manage responsive breakpoints
-/// @author Hugo Giraudel
+/// @author Hugo Giraudel - https://gist.github.com/Metaviolet/682c8d3b05a3a01fd598
 /// @param {String} $breakpoint - Breakpoint name
 /// @require $breakpoints
 @mixin respond-to($breakpoint) {
