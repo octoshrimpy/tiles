@@ -70,6 +70,12 @@ function createDroppable($droppableObj, acceptString, deactivateFunc = function(
   });
 };
 
+// Compute nearest lower power of 2 for n in [1, 2**31-1]:
+// https://stackoverflow.com/a/42799104
+function nearestPowerOf2(n) {
+  return 1 << 31 - Math.clz32(n);
+}
+
 function addToDroppable(event, ui){
   $droppableContainer = event.target;
   $item = ui.draggable;
@@ -86,20 +92,26 @@ function addToDroppable(event, ui){
   // dropping into empty slot
   if (parentisEmpty) {
     dataVal = Number($item[0].getAttribute('data-val'))
+
+    // create buffer tile for later insertion
+    if($parent[0].classList.contains('source')) {
+      $item[0].after(document.createElement('temp'))
+    }
+    // move tile to new place
     $item.detach().appendTo($droppableContainer);  
   } else {
     // parent has child, increment stuff and remove ghosts
     let child = $droppableContainer.children[0]
     $item.animate({maxWidth: 'toggle'})
-    // $ghost[0].style.display = 'none'
-    $parent[0].removeChild($item[0])
-    $parent[0].removeChild($ghost[0])
     dataVal = Number(child.getAttribute('data-val')) * 2
     child.setAttribute('data-val', dataVal)
+
+    $parent[0].removeChild($item[0])
+    $parent[0].removeChild($ghost[0])
     
     let tileContent
     if (dataVal > 9999) {
-      tileContent = `${dataVal.toString().slice(0, -3)}k`
+      tileContent = `${nearestPowerOf2(dataVal.toString().slice(0, -3))}k`
     } else {
       tileContent = dataVal
     }
@@ -112,11 +124,14 @@ function addToDroppable(event, ui){
   
   // add more tiles if pulled from source
   if($parent[0].classList.contains('source')) {
-    addMore()  
+    let placement = document.querySelector('temp')
+    addMore(1, placement)
+
     // @todo this needs to not be a timeout
     clearTimeout(checkMovesTimeout)
     checkMovesTimeout = setTimeout(checkMoves, 5000)
   }
+
   
   // if pulling from board and placing on board without merging
   if (parentisEmpty && wasOnBoard){
@@ -229,6 +244,7 @@ function createDraggable(selector, parentObj){
         // .animate({width: 'toggle', padding: 'toggle', margin: 'toggle'})
 
       $ghostClone = $ghost.clone();
+      console.log($item)
 
       var moveClone = function(){
         var promise = $.Deferred();
@@ -243,7 +259,7 @@ function createDraggable(selector, parentObj){
           // left: $item.offset().left
         })
           .queue(function(next){
-          $(this).remove();
+          $(this).remove(); //dragging ghost
           promise.resolve();
           next();
         });
@@ -263,7 +279,7 @@ function createDraggable(selector, parentObj){
 
 //// end jquery garbage
 
-function addMore(count = 1){
+function addMore(count = 1, insertAfter = null){
   // add more tiles to source
   for(let iter = 0; iter < count; iter++) {
     let addTo = document.querySelector('.source')
@@ -274,7 +290,14 @@ function addMore(count = 1){
     newElm.setAttribute('data-val', value)
     newElm.innerText = value
 
-    addTo.append(newElm)
+    if (insertAfter !== null) { 
+      insertAfter.after(newElm) 
+
+      console.log(insertAfter)
+      Array.from(document.querySelectorAll('temp')).forEach(temp => temp.remove())
+    } else {
+      addTo.append(newElm)
+    }
   }
   
   createDraggable( draggingSelector, $(draggable) )
