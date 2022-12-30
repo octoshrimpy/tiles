@@ -116,14 +116,14 @@ body, html {
   }
   @include respond-to('medium'){
     padding: 2rem 1rem;
-    font-size: 1.5em;
+    font-size: 1.25em;
     & > * {
       margin-left: 0 !important;
       margin-right: 0 !important;
     }
   }
   @include respond-to('large'){
-    font-size: 1.5em;
+    // font-size: 1.5em;
   }
 }
 

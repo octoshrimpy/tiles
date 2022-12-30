@@ -73,19 +73,13 @@ body, html {
 @media (min-width: 601px) and (max-width: 999px) {
   .game {
     padding: 2rem 1rem;
-    font-size: 1.5em;
+    font-size: 1.25em;
   }
   .game > * {
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
 }
-@media (min-width: 1200px) and (max-width: 9999px) {
-  .game {
-    font-size: 1.5em;
-  }
-}
-
 /*
 
                         .       .    o8o                                  
