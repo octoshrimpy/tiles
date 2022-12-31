@@ -96,13 +96,14 @@ $highlight-hover: #a3e1be;
 
 .board {
 
-  $grid: 4;
+  $grid_x: 4;
+  $grid_y: 3;
 
   position: relative;
   flex-grow: 1;
   display: grid;
-  grid-template-columns: repeat($grid, minmax(0, 1fr));
-  grid-template-rows: repeat($grid, minmax(0, 1fr));
+  grid-template-columns: repeat($grid_y, minmax(0, 1fr));
+  grid-template-rows: repeat($grid_x, minmax(0, 1fr));
   grid-gap: 1rem;
   margin: 1rem;
 
