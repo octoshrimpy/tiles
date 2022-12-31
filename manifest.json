@@ -3,7 +3,7 @@
   "short_name": "Zen32",
   "start_url": "./",
   "scope": ".",
-  "display": "minimal-ui",
+  "display": "standalone",
   "background_color": "#111111",
   "theme_color": "#673ab6",
   "orientation": "portrait-primary",
