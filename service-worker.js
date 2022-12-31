@@ -13,9 +13,11 @@ let filesToCache = [
   // ❗️❕donot add config.json here ❗️❕
   'index.html',
   'root.css',
+  'classic/',
   'classic/index.html',
   'classic/logic.js',
   'classic/game.css',
+  '3x4/',
   '3x4/index.html',
   '3x4/logic.js',
   '3x4/game.css',
