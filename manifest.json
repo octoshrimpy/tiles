@@ -5,9 +5,9 @@
   "display": "minimal-ui",
   "name": "Zen32",
   "orientation": "portrait",
-  "scope": "/",
+  "scope": "/tiles/",
   "short_name": "Zen32",
-  "start_url": "/",
+  "start_url": "/tiles/",
   "theme_color": "#673ab6",
   "categories": [
     "games"
