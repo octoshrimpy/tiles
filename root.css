@@ -425,4 +425,25 @@ input#settings_darkmode:checked ~ input#settings_hints:checked ~ .body_wrap .gam
 .list {
   display: flex;
   justify-content: center;
+}
+
+.downloadButton {
+  z-index: 99;
+  position: fixed;
+  display: flex;
+  bottom: 1rem;
+  right: 1rem;
+  padding: 1rem;
+  background: rgba(41, 168, 179, 0.4431372549);
+  border-radius: 10px;
+  font-size: 3em;
+  border: 1px solid #29a8b3;
+  border-bottom: 5px solid #29a8b3;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  opacity: 0.66;
+}
+.downloadButton:hover {
+  opacity: 1;
+  margin-bottom: 0.5rem;
 }/*# sourceMappingURL=root.css.map */
