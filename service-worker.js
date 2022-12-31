@@ -3,11 +3,11 @@ let cacheName = "zen32";// 👈 any unique name
 let filesToCache = [
   "/tiles/", // 👈 your repository name , both slash are important
   "service-worker.js",
-  // "js/main.js",
-  // "js/install-handler.js",
-  // "js/settings.js",
+  "main.js",
+  "install-handler.js",
+  "settings.js",
   // "css/main.css",
-  // "assets/icons/icon.png",
+  "icon.png",
   "manifest.json",
   // add your assets here 
   // ❗️❕donot add config.json here ❗️❕
