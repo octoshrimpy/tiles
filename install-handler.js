@@ -18,7 +18,7 @@
                 if (choiceResult.outcome === 'accepted') {
 
                     deferredInstallPrompt = null;
-                    document.querySelector('.downloadPrompt').style.display = 'none';
+                    document.querySelector('.downloadPrompt').style.visibility = 'visible';
 
                 } else {
                     console.log(choiceResult)
@@ -27,7 +27,7 @@
     }
 
     function showDownloadPrompt() {
-        document.querySelector('.downloadPrompt').style.display = 'grid';
+        document.querySelector('.downloadPrompt').style.visibility = 'visible';
     }
 
     window.addEventListener('appinstalled', (evt) => {

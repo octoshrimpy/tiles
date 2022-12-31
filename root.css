@@ -428,6 +428,7 @@ input#settings_darkmode:checked ~ input#settings_hints:checked ~ .body_wrap .gam
 }
 
 .downloadButton {
+  visibility: hidden;
   z-index: 99;
   position: fixed;
   display: flex;
