@@ -23,7 +23,7 @@
                 let installedVersion = Settings.getVersion()
                 if ( installedVersion== 0) {
                     Settings.setVersion(config.version)
-                    document.querySelector('#version').innerHTML= `version ${config.version}`;
+                    document.querySelector('#version').innerHTML= `v ${config.version}`;
                     return resolve();
                 }
                 else if (installedVersion != config.version) {
@@ -39,7 +39,7 @@
                 }else{
                     // already updated
                     console.log('Cache Updated')
-                    document.querySelector('#version').innerHTML= `version ${installedVersion}`;
+                    document.querySelector('#version').innerHTML= `v ${installedVersion}`;
                     return resolve();
                 }
             }).catch(err=>{
