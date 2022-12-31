@@ -1,4 +1,5 @@
-if ("serviceWorker" in navigator) {
-  // register service worker
-  navigator.serviceWorker.register("/tiles/service-worker.js");
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/tiles/sw.js')
+    .then(reg => console.log('service worker registered'))
+    .catch(err => console.log('service worker not registered', err))
 }
