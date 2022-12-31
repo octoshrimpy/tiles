@@ -12,7 +12,6 @@ let filesToCache = [
   // add your assets here 
   // ❗️❕donot add config.json here ❗️❕
   'index.html',
-  'root.js',
   'root.css',
   'classic/index.html',
   'classic/logic.js',
