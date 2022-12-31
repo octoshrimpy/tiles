@@ -1,15 +1,15 @@
 {
   "name": "Zen32",
   "short_name": "Zen32",
-  "id": "/tiles/",
-  "start_url": "/tiles/",
+  "start_url": "./",
+  "scope": ".",
   "display": "minimal-ui",
   "background_color": "#111111",
   "theme_color": "#673ab6",
   "orientation": "portrait-primary",
   "description": "Simple number matching game",
   "dir": "ltr",
-  "scope": "/tiles/",
+  "newBranch": "true",
   "categories": [
     "games"
   ],
